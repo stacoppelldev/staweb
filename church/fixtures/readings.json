@@ -1,0 +1,15 @@
+[
+    {
+      "model": "church.reading",
+      "pk": 4,
+      "fields": {
+        "date": "2021-08-24",
+        "reading_1": "Mathew 1",
+        "reading_1_passage": "This is the first passage",
+        "reading_2": "Mathew 2",
+        "reading_2_passage": "This is the second passage",
+        "gospel": "Mathew 3",
+        "gospel_passage": "This is the gospel passage"
+      }
+    }
+  ]

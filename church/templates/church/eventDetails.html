@@ -1,0 +1,103 @@
+{% extends "church/base2.html" %}
+{% load static %}
+{% block content %}
+<main id="main">
+
+    <!-- ======= Features Section ======= -->
+    <!-- <section id="features" class="features">
+        <div class="container">
+
+          <div class="section-title" data-aos="fade-up">
+            {% for event in events %}
+            <h2>{{ event.title }}</h2>
+            {% endfor %}
+          </div> -->
+          <!-- <div class="row">
+            {% for event in events %}
+            <div class="horizontal">
+              <i class="bx bx-book"></i><h4>Date: {{ event.start_date }}</h4>
+              </div>
+            <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+              <ul class="nav nav-tabs flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active show marginTop5" href="/update-reading/{{ reading.id }}">
+                    <div class="horizontal">
+                    <i class="bx bx-book"></i><h4>Date: {{ event.start_date }}</h4>
+                    </div>
+                    <i class="bx bx-book"></i><h4>Time: {{ event.start_time }}</h4>
+                    <i class="bx bx-book"></i><h4>Description: {{ event.description }}</h4>
+                </a>
+                </li>
+              </ul>
+            </div>
+            {% endfor %}
+            </div>
+  
+        </div>
+      </section>
+      End Features Section -->
+
+                      <!-- ======= About Section ======= -->
+                      {% for event in events %}
+                      {% if event.cover_image %}
+                      <section id="hero-ed" class="d-flex flex-column justify-content-center align-items-center">
+                        <img src="{{ event.cover_image.url }}">
+                      </section><!-- End Hero -->
+                      {% endif %}
+                      {% endfor %}
+
+
+                      <section id="about" class="about">
+                        <div class="container">
+                              <br>
+                              <br>
+                              <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                {% load custom_tags %}
+                                <a href="{% anchor 'home' 'steps' %}"><i class="bx bx-arrow-back"></i></a>
+                                <a href="{% anchor 'home' 'steps' %}"><h4>Back to Upcoming Events</h4></a>
+                              </div>
+                              <div class="section-title" data-aos="fade-up">
+                                {% for event in events %}
+                                <h2>{{ event.title }}</h2>
+                                {% endfor %}
+                              </div>
+                              {% for event in events %}
+
+                  
+                              <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <i class="bx bx-calendar"></i>
+                                <h4>Date</h4>
+                                <p>{{ event.start_date }}</p>
+                              </div>
+
+                              <div class="icon-box" data-aos="fade-up">
+                                <i class="bx bx-time"></i>
+                                <h4>Time:</h4>
+                                <p>{{ event.start_time }}</p>
+                              </div>
+                  
+                              
+                              <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+                                <i class="bx bx-detail"></i>
+                                <h4>Description</h4>
+                                <p>{{ event.description }}</p>
+                              </div>
+
+                              {% if event.event_image %}
+                              <div>
+                                <img height="100" width="100" src="{{ event.event_image.url }}">
+                              </div>
+                              {% endif %}
+                              {% if event.event_files %}
+                              <div>
+                                <a href="{{ event.event_files.url }}" download>{{ event.event_files }}</a>
+                              </div>
+                              {% endif %}
+                              {% endfor %}
+                  
+                  
+                        </div>
+                      </section><!-- End About Section -->
+
+    </main>
+{% endblock %}

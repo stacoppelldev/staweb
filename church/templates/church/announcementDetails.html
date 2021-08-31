@@ -1,0 +1,75 @@
+{% extends "church/base2.html" %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<main id="main">
+
+    <!-- ======= Features Section ======= -->
+    <!-- <section id="features" class="features">
+        <div class="container">
+
+          <div class="section-title" data-aos="fade-up">
+            {% for event in events %}
+            <h2>{{ event.title }}</h2>
+            {% endfor %}
+          </div> -->
+          <!-- <div class="row">
+            {% for event in events %}
+            <div class="horizontal">
+              <i class="bx bx-book"></i><h4>Date: {{ event.start_date }}</h4>
+              </div>
+            <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+              <ul class="nav nav-tabs flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active show marginTop5" href="/update-reading/{{ reading.id }}">
+                    <div class="horizontal">
+                    <i class="bx bx-book"></i><h4>Date: {{ event.start_date }}</h4>
+                    </div>
+                    <i class="bx bx-book"></i><h4>Time: {{ event.start_time }}</h4>
+                    <i class="bx bx-book"></i><h4>Description: {{ event.description }}</h4>
+                </a>
+                </li>
+              </ul>
+            </div>
+            {% endfor %}
+            </div>
+  
+        </div>
+      </section>
+      End Features Section -->
+
+                      <!-- ======= About Section ======= -->
+                      <section id="about" class="about">
+                        <div class="container">
+                  
+                          <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                            {% load custom_tags %}
+                            <a href="{% anchor 'home' 'features' %}"><i class="bx bx-arrow-back"></i></a>
+                            <a href="{% anchor 'home' 'features' %}"><h4>Back to Announcements</h4></a>
+                          </div>
+
+                              {% for announcement in announcements %}
+
+                  
+                              <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <i class="bx bx-message-square-detail"></i>
+                                <h4>{{ announcement.message }}</h4>
+                                {% if announcement.details %}
+                                <p>- {{ announcement.details }}</p>
+                                {% endif %}
+                                {% if announcement.details2 %}
+                                <p>- {{ announcement.details2 }}</p>
+                                {% endif %}
+                              </div>
+
+                              {% endfor %}
+                  
+                            </div>
+                          </div>
+                  
+                        </div>
+                      </section><!-- End About Section -->
+
+    </main>
+{% endblock %}

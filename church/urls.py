@@ -1,0 +1,39 @@
+from django.urls import path
+from . import views
+from .views import readingDetails, contact, FAQ, addBanner, updateBanner, addFAQ, bannerList, FAQList, updateFAQ, announcementDetails, eventDetails, calendar, eventList, announcementList, homeView, addEvent, addAnnouncement, addEvent, addAnnouncement, timeList, updateTime, updateReading, updateAnnouncement, updateEvent, readingList
+
+urlpatterns = [
+    path('', homeView.as_view(), name='home'),
+    path('about/', views.about, name='about'),
+    path('faith-formation/', views.about, name='faithFormation'),
+    path('sacraments/', views.sacraments, name='sacraments'),
+    path('give/', views.give, name='give'),
+    path('services/', views.services, name='services'),
+    path('get-involved/', views.about, name='getInvolved'),
+    path('calendar/', calendar.as_view(), name='calendar'),
+    path('meet-the-vicars/', views.meetTheVicars, name='meetTheVicars'),
+    path('contact', contact.as_view(), name='contact'),
+    path('announcementDetails/<int:pk>', announcementDetails.as_view(), name='announcement-details'),
+    path('announcements', announcementList.as_view(), name='announcements'),
+    path('FAQ', FAQ.as_view(), name='FAQ'),
+    path('readingDetails/<int:pk>', readingDetails.as_view(), name='reading-details'),
+
+    # ADMIN
+    path('alphonsa', views.alphonsa, name='alphonsa'),
+    path('add-event', addEvent.as_view(), name='add-event'),
+    path('add-banner', addBanner.as_view(), name='add-banner'),
+    path('add-announcement', addAnnouncement.as_view(), name='add-announcement'),
+    path('add-FAQ', addFAQ.as_view(), name='add-FAQ'),
+    path('update-time/<int:pk>', updateTime.as_view(), name='update-time'),
+    path('update-reading/<int:pk>', updateReading.as_view(), name='update-reading'),
+    path('update-event/<int:pk>', updateEvent.as_view(), name='update-event'),
+    path('update-banner/<int:pk>', updateBanner.as_view(), name='update-banner'),
+    path('update-announcement/<int:pk>', updateAnnouncement.as_view(), name='update-announcement'),
+    path('update-FAQ/<int:pk>', updateFAQ.as_view(), name='update-FAQ'),
+    path('times', timeList.as_view(), name='times'),
+    path('readings', readingList.as_view(), name='readings'),
+    path('events', eventList.as_view(), name='events'),
+    path('FAQS', FAQList.as_view(), name='FAQS'),
+    path('banners', bannerList.as_view(), name='banners'),
+    path('eventDetails/<int:pk>', eventDetails.as_view(), name='event-details')
+]
