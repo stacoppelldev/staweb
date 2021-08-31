@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,12 +77,16 @@ WSGI_APPLICATION = 'staweb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+DATABASE_URL = "postgres://knyoqkjbzelvvo:9385d28929d1fd2933704b8ed010b6327e8e7447f2b915a4ddddce8542621b9b@ec2-35-153-91-18.compute-1.amazonaws.com:5432/dagihq05m7kkq6"
+
+DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 
 # Password validation
