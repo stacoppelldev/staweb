@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 import dj_database_url
+# from .local import SK, DB
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,6 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SK')
+# SECRET_KEY = SK
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -85,6 +88,7 @@ WSGI_APPLICATION = 'staweb.wsgi.application'
 # }
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
+# DATABASE_URL = DB
 
 DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 

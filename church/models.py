@@ -50,6 +50,13 @@ class announcement(models.Model):
     def __str__(self):
         return '%s %s %s' % (self.message, self.hyperlink, self.order)
 
+class detail(models.Model):
+    message = models.CharField(max_length=100)
+    announcement = models.ForeignKey(announcement, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '%s %s' % (self.message, self.announcement)
+
 class faq(models.Model):
     question = models.CharField(max_length=200)
     answer = models.CharField(max_length=250, blank=True, null=True)
