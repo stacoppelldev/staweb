@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '7n7*bon-106ttha(h)7f#!8c*y6c65gu6e-70zp0hat&76tqi)'
+SECRET_KEY = os.environ.get('SK')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'staweb.wsgi.application'
 #     }
 # }
 
-DATABASE_URL = "postgres://knyoqkjbzelvvo:9385d28929d1fd2933704b8ed010b6327e8e7447f2b915a4ddddce8542621b9b@ec2-35-153-91-18.compute-1.amazonaws.com:5432/dagihq05m7kkq6"
+DATABASE_URL = os.environ.get('DATABASE_URL')
 
 DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
