@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import event, time, reading, announcement, faq, banner
+from .models import event, time, reading, announcement, detail, faq, banner
 from django import forms
 from django.forms import ModelForm
 from django.core.mail import send_mail
@@ -22,7 +22,14 @@ class addAnnouncementForm(forms.ModelForm):
 
     class Meta:
         model = announcement
-        fields = ['message', 'details', 'details2', 'order']
+        fields = ['message', 'order']
+
+class addDetailForm(forms.ModelForm):
+
+    class Meta:
+        model = detail
+        fields = ['message', 'announcement']
+    
 
 class addBannerForm(forms.ModelForm):
 

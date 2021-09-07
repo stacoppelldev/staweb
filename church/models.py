@@ -41,14 +41,10 @@ class reading(models.Model):
 
 class announcement(models.Model):
     message = models.CharField(max_length=100)
-    details = models.CharField(max_length=200, null=True)
-    details2 = models.CharField(max_length=200, null=True)
-
-    hyperlink = models.CharField(max_length=100, blank=True, null=True)
     order = models.IntegerField()
 
     def __str__(self):
-        return '%s %s %s' % (self.message, self.hyperlink, self.order)
+        return '%s %s' % (self.message, self.order)
 
 class detail(models.Model):
     message = models.CharField(max_length=100)
