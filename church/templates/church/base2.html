@@ -84,7 +84,10 @@
             </ul>
           </li>
           <li><a href="{% url 'contact' %}">Contact Here</a></li>
-
+          {% if request.user.is_superuser %}
+          <li><a href="{% url 'alphonsa' %}">Admin Panel</a></li>
+          {% else %}
+          {% endif %}
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -138,7 +141,8 @@
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Subscribe to Emails</h4>
             <!-- <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p> -->
-            <form action="" method="post">
+            <form action="{% url 'send-email' %}" method="post">
+              {% csrf_token %}
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
 

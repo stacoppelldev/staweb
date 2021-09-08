@@ -1,3 +1,4 @@
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic.edit import FormMixin
 from django.views.generic import CreateView, TemplateView, UpdateView, ListView, FormView
@@ -9,6 +10,9 @@ from django.http import JsonResponse
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 from datetime import datetime
+from django.urls import reverse
+from django.http import HttpResponse
+from django.core.mail import send_mail
 
 @user_passes_test(lambda u: u.is_superuser)
 def alphonsa(request):
@@ -313,3 +317,9 @@ class FAQList(ListView):
         return faq.objects.all()
 
 
+def send_email(request):
+    print('email sent')
+    e = request.POST['email']
+    print(e)
+    send_mail('Thank you for subscribing', 'Subscribed Successfully', 'devalphonsa@gmail.com', [e])
+    return HttpResponseRedirect('/')

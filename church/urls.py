@@ -1,6 +1,10 @@
 from django.urls import path
 from . import views
-from .views import addDetail, readingDetails, contact, FAQ, addBanner, updateBanner, addFAQ, bannerList, FAQList, updateFAQ, announcementDetails, eventDetails, calendar, eventList, announcementList, homeView, addEvent, addAnnouncement, addEvent, addAnnouncement, timeList, updateTime, updateReading, updateAnnouncement, updateEvent, readingList
+from .views import (addDetail, readingDetails, contact, FAQ,
+ addBanner, updateBanner, addFAQ, bannerList, FAQList, updateFAQ,
+ announcementDetails, eventDetails, calendar, eventList, announcementList,
+ homeView, addEvent, addAnnouncement, addEvent, addAnnouncement, timeList, updateTime, updateReading,
+ updateAnnouncement, updateEvent, readingList, send_email)
 
 urlpatterns = [
     path('', homeView.as_view(), name='home'),
@@ -17,6 +21,7 @@ urlpatterns = [
     path('announcements', announcementList.as_view(), name='announcements'),
     path('FAQ', FAQ.as_view(), name='FAQ'),
     path('readingDetails/<int:pk>', readingDetails.as_view(), name='reading-details'),
+    path('send-email/', send_email, name='send-email'),
 
     # ADMIN
     path('alphonsa', views.alphonsa, name='alphonsa'),
