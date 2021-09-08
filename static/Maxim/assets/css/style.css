@@ -1639,3 +1639,7 @@ margin-left: 120px;
   line-height: 56px;
   color: #fff;
 }
+
+.sep {
+  justify-content: space-between;
+}

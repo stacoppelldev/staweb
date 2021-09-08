@@ -28,13 +28,17 @@
                 </div>
               </li>
               {% endfor %}
-  
             </ul>
           </div>
   
   
         </div>
       </section><!-- End F.A.Q Section -->
-
+      {% if request.user.is_superuser %}
+      <div class="section-bg">
+      <div class="text-center"><a href="{% url 'alphonsa' %}" class="greenButton">Edit</a></div>
+      </div>
+      {% else %}
+      {% endif %}
     </main>
     {% endblock %}
