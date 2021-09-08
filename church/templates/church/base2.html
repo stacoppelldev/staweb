@@ -85,7 +85,7 @@
           </li>
           <li><a href="{% url 'contact' %}">Contact Here</a></li>
           {% if request.user.is_superuser %}
-          <li><a href="{% url 'alphonsa' %}">Admin Panel</a></li>
+          <li><a style='text-decoration: none;' class="greenButton" href="{% url 'alphonsa' %}"><span style='margin-left:1.25px; display:inline-block;'></span> Admin Panel<span style='padding-right:2.25px; display:inline-block;'></span></a></li>
           {% else %}
           {% endif %}
         </ul>

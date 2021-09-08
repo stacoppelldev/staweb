@@ -1587,6 +1587,21 @@ margin-left: 120px;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+.adminButton {
+  background-color: #1bac91; /* Green */
+  border-radius: 5px;
+  border: none;
+  color: white;
+  text-align: center;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.aBPadding {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
 /* SECTION UPCOMING EVENTS */
 .greenButton {
   background-color: #1bac91;
