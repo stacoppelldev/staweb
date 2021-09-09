@@ -148,14 +148,14 @@ class updateFAQForm(forms.ModelForm):
     }
 
 class contactForm(forms.Form):
-    name = forms.CharField(label='Name', max_length=100)
-    subject = forms.CharField(label='Subject', max_length=100)
-    email = forms.CharField(label='Email', max_length=100)
-    cell = forms.CharField(label='Cell', max_length=100)
-    message = forms.CharField(label='Message', max_length=500)
+    name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    subject = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    email = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    cell = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    message = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
 
     def clean(self):
-        user_email = self.cleaned_data['user_email']
+        user_email = self.cleaned_data['email']
         send_mail('test', 'test', 'devalphonsa@gmail.com', [user_email])
 
 

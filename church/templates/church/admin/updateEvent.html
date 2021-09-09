@@ -7,16 +7,30 @@
 <br>
 <br>
 <br>
-<form method="POST">
-    {% csrf_token %}
-    <fieldset class="form-group">
-        <div class="section-title" data-aos="fade-up">
+
+<main id="main">
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+        <div class="container">
+
+          <div class="section-title" data-aos="fade-up">
             <h2>Update Event</h2>
           </div>
-        {{ form|crispy }}
-    </fieldset>
-    <div class="form-group">
-        <button class="btn btn-outline-info" type="submit">Update</button>
-    </div>
-</form>
+          <div class="section-title" data-aos="fade-up">
+          <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Update</button>
+        </form>
+          </div>
+        </div>
+      </section>
+      <!-- End Features Section -->
+
+    </main>
+
 {% endblock %}

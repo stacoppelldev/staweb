@@ -43,7 +43,9 @@
                         </div>
                       </section><!-- End About Section -->
                       {% if request.user.is_superuser %}
-                      <div class="text-center"><a href="{% url 'alphonsa' %}" class="greenButton">Edit</a></div>
+                      {% for reading in readings %}
+                      <div class="text-center"><a href="{% url 'update-reading' pk=reading.id %}" class="greenButton">Edit</a></div>
+                      {% endfor %}
                       {% else %}
                       {% endif %}
     </main>

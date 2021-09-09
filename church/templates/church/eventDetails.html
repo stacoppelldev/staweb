@@ -99,7 +99,11 @@
                         </div>
                       </section><!-- End About Section -->
                       {% if request.user.is_superuser %}
-                      <div class="text-center"><a href="{% url 'alphonsa' %}" class="greenButton">Edit</a></div>
+                      {% for event in events %}
+                      {% if event.id %}
+                      <div class="text-center"><a href="{% url 'update-event' pk=event.id %}" class="greenButton">Edit</a></div>
+                      {% endif %}
+                      {% endfor %}
                       {% else %}
                       {% endif %}
     </main>
