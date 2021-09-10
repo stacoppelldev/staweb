@@ -1527,6 +1527,11 @@ section {
   flex-direction: row;
 }
 
+.horizontalflex {
+  display: flex;
+  flex-direction: row;
+}
+
 .inline {
   display: inline-block;
 }

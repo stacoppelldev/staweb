@@ -18,7 +18,7 @@
             <h2>Update Event</h2>
           </div>
           <div class="section-title" data-aos="fade-up">
-          <form method="POST">
+          <form method="POST" autocomplete="off">
             {% csrf_token %}
             <fieldset class="form-group">
                 {{ form|crispy }}

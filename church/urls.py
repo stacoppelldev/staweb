@@ -4,7 +4,7 @@ from .views import (addDetail, readingDetails, contact, FAQ,
  addBanner, updateBanner, addFAQ, bannerList, FAQList, updateFAQ,
  announcementDetails, eventDetails, calendar, eventList, announcementList,
  homeView, addEvent, addAnnouncement, addEvent, addAnnouncement, timeList, updateTime, updateReading,
- updateAnnouncement, updateEvent, readingList, send_email)
+ updateAnnouncement, updateDetail, updateEvent, readingList, send_email)
 
 urlpatterns = [
     path('', homeView.as_view(), name='home'),
@@ -35,6 +35,7 @@ urlpatterns = [
     path('update-event/<int:pk>', updateEvent.as_view(), name='update-event'),
     path('update-banner/<int:pk>', updateBanner.as_view(), name='update-banner'),
     path('update-announcement/<int:pk>', updateAnnouncement.as_view(), name='update-announcement'),
+    path('update-detail/<int:pk>', updateDetail.as_view(), name='update-detail'),
     path('update-FAQ/<int:pk>', updateFAQ.as_view(), name='update-FAQ'),
     path('times', timeList.as_view(), name='times'),
     path('readings', readingList.as_view(), name='readings'),

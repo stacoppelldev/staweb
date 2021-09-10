@@ -111,6 +111,16 @@ class updateAnnouncementForm(forms.ModelForm):
         'order': forms.NumberInput(attrs={'class': 'form-control'}),
     }
 
+class updateDetailForm(forms.ModelForm):
+
+    class Meta:
+        model = detail
+        fields = ['message', 'announcement']
+        widgets = {
+        'message': forms.TextInput(attrs={'class': 'form-control'}),
+        'announcement': forms.Select(attrs={'class': 'form-control'}),
+    }
+
 
 class updateTimeForm(forms.ModelForm):
 

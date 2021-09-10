@@ -3,7 +3,10 @@ from django.shortcuts import render
 from django.views.generic.edit import FormMixin
 from django.views.generic import CreateView, TemplateView, UpdateView, ListView, FormView
 from .models import event, time, reading, announcement, detail, faq, banner
-from .forms import contactForm, addFAQForm, addBannerForm, addEventForm, addAnnouncementForm, addDetailForm, updateBannerForm, updateFAQForm, updateAnnouncementForm, updateEventForm, updateTimeForm, updateReadingForm
+from .forms import (contactForm, addFAQForm, addBannerForm, addEventForm,
+ addAnnouncementForm, addDetailForm, updateBannerForm, updateFAQForm, updateAnnouncementForm,
+ updateDetailForm,
+  updateEventForm, updateTimeForm, updateReadingForm)
 from django.contrib.auth.decorators import user_passes_test
 from django.core import serializers
 from django.http import JsonResponse
@@ -245,6 +248,22 @@ class updateAnnouncement(UpdateView):
     template_name = 'church/admin/updateAnnouncement.html'
     model = announcement
     form_class = updateAnnouncementForm
+    success_url = '/'
+
+    def form_valid(self, form):
+        form.instance.organizer = self.request.user
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super(updateAnnouncement, self).get_context_data(**kwargs)
+        e = self.kwargs.get('pk')
+        context['details'] = detail.objects.filter(announcement=e)
+        return context
+
+class updateDetail(UpdateView):
+    template_name = 'church/admin/updateDetail.html'
+    model = detail
+    form_class = updateDetailForm
     success_url = '/'
 
     def form_valid(self, form):

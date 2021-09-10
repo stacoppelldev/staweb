@@ -15,7 +15,7 @@
         <div class="container">
 
           <div class="section-title" data-aos="fade-up">
-            <h2>Update Announcement</h2>
+            <h2>Update Detail</h2>
           </div>
           <div class="section-title" data-aos="fade-up">
           <form method="POST">
@@ -25,17 +25,10 @@
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Update</button>
+                <button class="btn btn-outline-danger" type="submit">Delete</button>
         </form>
           </div>
         </div>
-        <a href="{% url 'add-detail' %}" class="btn btn-outline-info">Add Details</a>
-        {% for detail in details %}
-        <div class="horizontalflex">
-        <p>{{ detail.message }}</p>
-
-        <a href="{% url 'update-detail' pk=detail.id %}" class="btn btn-outline-info">Edit</a>
-        </div>
-        {% endfor %}
       </section>
       <!-- End Features Section -->
 
