@@ -16,6 +16,8 @@ from datetime import datetime
 from django.urls import reverse
 from django.http import HttpResponse
 from django.core.mail import send_mail
+from django.contrib import messages
+
 
 @user_passes_test(lambda u: u.is_superuser)
 def alphonsa(request):
@@ -162,6 +164,7 @@ class addEvent(CreateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
+        messages.success(self.request, 'Event added successfully')
         return super().form_valid(form)
 
 class addBanner(CreateView):
@@ -172,6 +175,7 @@ class addBanner(CreateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
+        messages.success(self.request, 'Banner added successfully')
         return super().form_valid(form)
 
 class addAnnouncement(CreateView):
@@ -182,6 +186,7 @@ class addAnnouncement(CreateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
+        messages.success(self.request, 'Announcement added successfully')
         return super().form_valid(form)
 
 class addDetail(CreateView):
@@ -192,6 +197,7 @@ class addDetail(CreateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
+        messages.success(self.request, 'Detail added successfully')
         return super().form_valid(form)
 
 class addFAQ(CreateView):
@@ -202,6 +208,7 @@ class addFAQ(CreateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
+        messages.success(self.request, 'FAQ added successfully')
         return super().form_valid(form)
 
 class updateTime(UpdateView):
@@ -212,6 +219,7 @@ class updateTime(UpdateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
+        messages.success(self.request, 'Edit made successfully')
         return super().form_valid(form)
 
 class updateBanner(UpdateView):
@@ -222,6 +230,7 @@ class updateBanner(UpdateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
+        messages.success(self.request, 'Edit made successfully')
         return super().form_valid(form)
 
 class updateReading(UpdateView):
@@ -232,6 +241,7 @@ class updateReading(UpdateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
+        messages.success(self.request, 'Edit made successfully')
         return super().form_valid(form)
 
 class updateEvent(UpdateView):
@@ -242,6 +252,7 @@ class updateEvent(UpdateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
+        messages.success(self.request, 'Edit made successfully')
         return super().form_valid(form)
 
 class updateAnnouncement(UpdateView):
@@ -252,6 +263,7 @@ class updateAnnouncement(UpdateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
+        messages.success(self.request, 'Edit made successfully')
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
@@ -268,6 +280,7 @@ class updateDetail(UpdateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
+        messages.success(self.request, 'Edit made successfully')
         return super().form_valid(form)
 
 class updateFAQ(UpdateView):
@@ -278,6 +291,7 @@ class updateFAQ(UpdateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
+        messages.success(self.request, 'Edit made successfully')
         return super().form_valid(form)
 
 
@@ -341,4 +355,5 @@ def send_email(request):
     e = request.POST['email']
     print(e)
     send_mail('Thank you for subscribing', 'Subscribed Successfully', 'devalphonsa@gmail.com', [e])
+    messages.success(request, 'Successfully subscribed!')
     return HttpResponseRedirect('/')
