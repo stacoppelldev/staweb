@@ -37,3 +37,15 @@ window.addEventListener("scroll", () => {
         console.log(currentScroll);
     }
 })
+
+// SUCCESS MESSAGE FUNCTIONALITY
+const message = document.querySelector("#messagediv");
+
+window.addEventListener("scroll", () => {
+    const message = document.querySelector("#messagediv")
+    const currentScroll = window.pageYOffset;
+    if (currentScroll > 100) {
+        message.classList.add("hidden");
+        console.log(currentScroll);
+    }
+})
