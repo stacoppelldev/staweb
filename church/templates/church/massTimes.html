@@ -1,0 +1,68 @@
+{% extends "church/base2.html" %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<main id="main">
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+        <div class="container">
+
+          <div class="section-title" data-aos="fade-up">
+            <h2>Mass Times</h2>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+              <ul class="nav nav-tabs flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active show marginTop5" href="/update-announcement/{{ announcement.id }}">
+                        <p class="description"><Strong>Sunday Mass</Strong></p>
+                        <p class="description">{{ sundayMassMalayalam.time }} Solemn Holy Mass (Malayalam)</p>
+                        <p class="description">{{ sundayMassEnglish.time }} Solemn Holy Mass (English)</p>
+                </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+                <ul class="nav nav-tabs flex-column">
+                  <li class="nav-item">
+                      <a class="nav-link active show marginTop5" href="/update-announcement/{{ announcement.id }}">
+                          <p class="description"><Strong>Monday - Tuesday - Wednesday - Saturday:</Strong></p>
+                          <p class="description">{{ weekdayMassMTWS.time }} Holy Mass (Malayalam)</p>
+                          <p class="description"><Strong>Thursday - Friday:</Strong></p>
+                          <p class="description">{{ weekdayMassTTH.time }} Holy Mass (Malayalam). <span class="novena">Followed by Novena</span></p>          
+                  </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+                <ul class="nav nav-tabs flex-column">
+                  <li class="nav-item">
+                      <a class="nav-link active show marginTop5" href="/update-announcement/{{ announcement.id }}">
+                          <p class="description">{{ sundayMassMalayalam.time }} Solemn Holy Mass (Malayalam)</p>
+                          <p class="description">{{ sundayMassEnglish.time }} Solemn Holy Mass (English)</p>
+                          <p class="description"><Strong>Monday - Tuesday - Wednesday - Saturday:</Strong></p>
+                          <p class="description">{{ weekdayMassMTWS.time }} Holy Mass (Malayalam)</p>
+                          <p class="description"><Strong>Thursday - Friday:</Strong></p>
+                          <p class="description">{{ weekdayMassTTH.time }} Holy Mass (Malayalam). <span class="novena">Followed by Novena</span></p>          
+                  </a>
+                  </li>
+                </ul>
+              </div> -->
+
+            </div>
+
+  
+        </div>
+      </section>
+      <!-- End Features Section -->
+
+    </main>
+    {% endblock %}
