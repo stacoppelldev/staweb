@@ -127,3 +127,4 @@ dmypy.json
 #local files
 .local 
 local.py
+.idea

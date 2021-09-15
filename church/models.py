@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 EVENT_STATUS = (
     ('Active', 'Active'),
@@ -19,6 +20,10 @@ class event(models.Model):
 
     def __str__(self):
         return '%s %s %s %s' % (self.title, self.start_date, self.start_time, self.description)
+
+    def get_absolute_url(self):
+        return reverse('event-details', args=[self.id])
+
 
 class time(models.Model):
     title = models.CharField(max_length=100)

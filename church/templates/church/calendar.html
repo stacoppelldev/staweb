@@ -2,18 +2,13 @@
 {% load static %}
 {% block content %}
 <script>
+    var events = {{ events | safe }}
 
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
       initialView: 'dayGridMonth',
-      events: [
-        {
-          id: 'test',
-          title: "{{ events.title }}",
-          start: '2021-03-14'
-        }
-      ]
+      events: events
     });
     calendar.render();
   });
