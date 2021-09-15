@@ -108,6 +108,18 @@ class contact(FormView):
 def services(request):
     return render(request, 'church/services.html')
 
+class massTimes(TemplateView):
+    template_name = "church/massTimes.html"
+    model = time
+
+    def get_context_data(self, **kwargs):
+        context = super(massTimes, self).get_context_data(**kwargs)
+        context['sundayMassMalayalam'] = time.objects.get(title="Sunday Mass Malayalam")
+        context['sundayMassEnglish'] = time.objects.get(title="Sunday Mass English")
+        context['weekdayMassMTWS'] = time.objects.get(title="Weekday Mass MTWS")
+        context['weekdayMassTTH'] = time.objects.get(title="Weekday Mass TTH")
+        return context
+
 class FAQ(TemplateView):
     template_name = 'church/FAQ.html'
     model = faq

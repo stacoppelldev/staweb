@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import (addDetail, readingDetails, contact, FAQ,
+from .views import (addDetail, massTimes, readingDetails, contact, FAQ,
  addBanner, updateBanner, addFAQ, bannerList, FAQList, updateFAQ,
  announcementDetails, eventDetails, calendar, eventList, announcementList,
  homeView, addEvent, addAnnouncement, addEvent, addAnnouncement, timeList, updateTime, updateReading,
@@ -8,6 +8,7 @@ from .views import (addDetail, readingDetails, contact, FAQ,
 
 urlpatterns = [
     path('', homeView.as_view(), name='home'),
+    path('mass-times/', massTimes.as_view(), name='mass-times'),
     path('about/', views.about, name='about'),
     path('faith-formation/', views.about, name='faithFormation'),
     path('sacraments/', views.sacraments, name='sacraments'),
