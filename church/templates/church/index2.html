@@ -148,39 +148,52 @@
       </div>
     </section><!-- End Services Section -->
 
-                <!-- ======= About Section ======= -->
-                <section id="about" class="about">
-                  <div class="container">
-            
-                    <div class="row">
-                      <div class="col-xl-6 col-lg-5 pt-5 pt-lg-0">
-                        <div class="section-title" data-aos="fade-up">
-                          <h2>Today's Readings</h2>
-                        </div>
-                        <div class="icon-box" data-aos="fade-up">
-                          <i class="bx bx-book"></i>
-                          <a href="/readingDetails/{{ reading.id }}"><h4>1st Reading</h4></a>
-                          <p>{{ reading.reading_1 }}</p>
-                        </div>
-            
-                        <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                          <i class="bx bx-book"></i>
-                          <a href="/readingDetails/{{ reading.id }}"><h4>2nd Reading</h4></a>
-                          <p>{{ reading.reading_2 }}</p>
-                        </div>
-            
-                        <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                          <i class="bx bx-book"></i>
-                          <a href="/readingDetails/{{ reading.id }}"><h4>Gospel</h4></a>
-                          <p>{{ reading.gospel }}</p>
-                        </div>
+    <section id="features" class="features">
+      <div class="container">
 
-            
-                      </div>
-                    </div>
-            
-                  </div>
-                </section><!-- End About Section -->
+        <div class="section-title" data-aos="fade-up">
+          <h2>Today's Readings</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item">
+                  <a class="nav-link active show marginTop5" href="/update-announcement/{{ announcement.id }}">
+                      <p class="description"><Strong>1st Reading</Strong></p>
+                      <p class="description">{{ reading.reading_1 }}</p>
+              </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item">
+                  <a class="nav-link active show marginTop5" href="/update-announcement/{{ announcement.id }}">
+                      <p class="description"><Strong>2nd Reading</Strong></p>
+                      <p class="description">{{ reading.reading_2 }}</p>
+              </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item">
+                  <a class="nav-link active show marginTop5" href="/update-announcement/{{ announcement.id }}">
+                      <p class="description"><Strong>Gospel Reading</Strong></p>
+                      <p class="description">{{ reading.gospel }}</p>
+              </a>
+              </li>
+            </ul>
+          </div>
+
+          </div>
+
+
+      </div>
+    </section>
 
     <!-- ======= Testimonials Section ======= -->
     <!-- <section id="testimonials" class="testimonials">

@@ -76,8 +76,9 @@ class calendar(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(calendar, self).get_context_data(**kwargs)
-        e = event.objects.filter(pk=1).values_list('id', 'title', 'start_date')
-        context['events'] = json.dumps(list(e), cls=DjangoJSONEncoder)
+        e = event.objects.all()
+        e_vents = [{'title': x.title, 'start': x.start_date, 'id': x.id, 'url': x.get_absolute_url()} for x in e]
+        context['events'] = json.dumps(e_vents, cls=DjangoJSONEncoder)
         print(context)
         return context
 
