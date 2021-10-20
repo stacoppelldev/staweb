@@ -59,7 +59,7 @@
           <li class="active"><a href="{% url 'home' %}">Home</a></li>
           <li class="drop-down"><a href="{% url 'about' %}">About Us</a>
             <ul>
-              <li><a href="#">History</a></li>
+              <li><a href="{% url 'about' %}">History</a></li>
               <li><a href="#">Sacraments</a></li>
             </ul>
           </li>
@@ -89,7 +89,7 @@
             </ul>
           </li>
           <li><a href="#">Media</a></li>
-          <li><a href="#">Announcements</a></li>
+          <li><a href="{% url 'announcements' %}">Announcements</a></li>
           <li><a href="{% url 'contact' %}">Contact Us</a></li>
           {% if request.user.is_superuser %}
           <li><a style='text-decoration: none;' class="greenButton" href="{% url 'alphonsa' %}"><span style='margin-left:1.25px; display:inline-block;'></span> Admin Panel<span style='padding-right:2.25px; display:inline-block;'></span></a></li>
