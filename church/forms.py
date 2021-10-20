@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import event, time, reading, announcement, detail, faq, banner
+from .models import event, time, reading, announcement, faq, banner
 from django import forms
 from django.forms import ModelForm
 from django.core.mail import send_mail
@@ -13,11 +13,13 @@ class addEventForm(forms.ModelForm):
 
     class Meta:
         model = event
-        fields = ['title', 'start_date', 'start_time', 'description', 'cover_image', 'event_image', 'event_files']
+        fields = ['title', 'start_date', 'start_time', 'end_date', 'end_time', 'description', 'cover_image', 'event_image', 'event_files']
         widgets = {
         'title': forms.TextInput(attrs={'class': 'form-control'}),
         'start_date': forms.DateInput(attrs={'class': 'form-control'}),
         'start_time': forms.TimeInput(attrs={'class': 'form-control'}),
+        'end_date': forms.DateInput(attrs={'class': 'form-control'}),
+        'end_time': forms.TimeInput(attrs={'class': 'form-control'}),
         'description': forms.TextInput(attrs={'class': 'form-control'}),
         'cover_image': forms.FileInput(attrs={'class': 'form-control'}),
         'event_image': forms.FileInput(attrs={'class': 'form-control'}),
@@ -39,20 +41,11 @@ class addAnnouncementForm(forms.ModelForm):
 
     class Meta:
         model = announcement
-        fields = ['message', 'order']
+        fields = ['message', 'detail', 'order']
         widgets = {
         'message': forms.TextInput(attrs={'class': 'form-control'}),
+        'detail': forms.TextInput(attrs={'class': 'form-control'}),
         'order': forms.NumberInput(attrs={'class': 'form-control'}),
-    }
-
-class addDetailForm(forms.ModelForm):
-
-    class Meta:
-        model = detail
-        fields = ['message', 'announcement']
-        widgets = {
-        'message': forms.TextInput(attrs={'class': 'form-control'}),
-        'announcement': forms.Select(attrs={'class': 'form-control'}),
     }
 
 class addBannerForm(forms.ModelForm):
@@ -79,11 +72,13 @@ class updateEventForm(forms.ModelForm):
 
     class Meta:
         model = event
-        fields = ['title', 'start_date', 'start_time', 'description', 'event_status', 'cover_image', 'event_image', 'event_files']
+        fields = ['title', 'start_date', 'start_time', 'end_date', 'end_time', 'description', 'event_status', 'cover_image', 'event_image', 'event_files']
         widgets = {
         'title': forms.TextInput(attrs={'class': 'form-control'}),
         'start_date': forms.DateInput(attrs={'class': 'form-control'}),
         'start_time': forms.TimeInput(attrs={'class': 'form-control'}),
+        'end_date': forms.DateInput(attrs={'class': 'form-control'}),
+        'end_time': forms.TimeInput(attrs={'class': 'form-control'}),
         'description': forms.TextInput(attrs={'class': 'form-control'}),
         'cover_image': forms.FileInput(attrs={'class': 'form-control'}),
         'event_image': forms.FileInput(attrs={'class': 'form-control'}),
@@ -105,22 +100,12 @@ class updateAnnouncementForm(forms.ModelForm):
 
     class Meta:
         model = announcement
-        fields = ['message', 'order']
+        fields = ['message', 'detail', 'order']
         widgets = {
         'message': forms.TextInput(attrs={'class': 'form-control'}),
+        'detail': forms.TextInput(attrs={'class': 'form-control'}),
         'order': forms.NumberInput(attrs={'class': 'form-control'}),
     }
-
-class updateDetailForm(forms.ModelForm):
-
-    class Meta:
-        model = detail
-        fields = ['message', 'announcement']
-        widgets = {
-        'message': forms.TextInput(attrs={'class': 'form-control'}),
-        'announcement': forms.Select(attrs={'class': 'form-control'}),
-    }
-
 
 class updateTimeForm(forms.ModelForm):
 

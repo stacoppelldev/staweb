@@ -28,14 +28,6 @@
         </form>
           </div>
         </div>
-        <a href="{% url 'add-detail' %}" class="btn btn-outline-info">Add Details</a>
-        {% for detail in details %}
-        <div class="horizontalflex">
-        <p>{{ detail.message }}</p>
-
-        <a href="{% url 'update-detail' pk=detail.id %}" class="btn btn-outline-info">Edit</a>
-        </div>
-        {% endfor %}
       </section>
       <!-- End Features Section -->
 

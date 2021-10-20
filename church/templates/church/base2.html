@@ -57,37 +57,40 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'about' %}">About Us</a></li>
+          <li class="drop-down"><a href="{% url 'about' %}">About Us</a>
+            <ul>
+              <li><a href="#">History</a></li>
+              <li><a href="#">Sacraments</a></li>
+            </ul>
+          </li>
           <li class="drop-down"><a href="">Faith Formation</a>
             <ul>
-              <li><a href="#">Faith Formation 1</a></li>
-              <li><a href="#">Faith Formation 2</a></li>
+              <li><a href="#">CCD</a></li>
+              <li><a href="#">Didache</a></li>
             </ul>
           </li>
-          <li class="drop-down"><a href="">Sacraments</a>
+          <li class="drop-down"><a href="">Ministries</a>
             <ul>
-              <li><a href="#">Baptism</a></li>
-              <li><a href="#">Reconciliation</a></li>
-              <li><a href="#">Holy Communion</a></li>
-              <li><a href="#">Confirmation</a></li>
-              <li><a href="#">Matrimony</a></li>
-              <li><a href="#">Holy Orders</a></li>
-              <li><a href="#">Annointing of the Sick</a></li>
-            </ul>
-          </li>
-          <li class="drop-down"><a href="">Give</a>
-            <ul>
-              <li><a href="#">Give 1</a></li>
-              <li><a href="#">Give 2</a></li>
-            </ul>
-          </li>
-          <li class="drop-down"><a href="">Get Involved</a>
-            <ul>
-              <li><a href="#">Vincent DePaul</a></li>
               <li><a href="#">Legion of Mary</a></li>
+              <li><a href="#">St. Vincent De Paul</a></li>
+              <li><a href="#">Youth</a></li>
+              <li><a href="#">SMCC</a></li>
+              <li><a href="#">Little Flower Mission</a></li>
+              <li><a href="#">Music</a></li>
+              <li><a href="#">Safe Environment</a></li>
+              <li><a href="#">Pro-Life</a></li>
             </ul>
           </li>
-          <li><a href="{% url 'contact' %}">Contact</a></li>
+          <li class="drop-down"><a href="">Liturgy</a>
+            <ul>
+              <li><a href="#">Mass Timings</a></li>
+              <li><a href="#">Bible Readings</a></li>
+              <li><a href="#">Live Streaming</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Media</a></li>
+          <li><a href="#">Announcements</a></li>
+          <li><a href="{% url 'contact' %}">Contact Us</a></li>
           {% if request.user.is_superuser %}
           <li><a style='text-decoration: none;' class="greenButton" href="{% url 'alphonsa' %}"><span style='margin-left:1.25px; display:inline-block;'></span> Admin Panel<span style='padding-right:2.25px; display:inline-block;'></span></a></li>
           {% else %}

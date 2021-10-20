@@ -1,10 +1,10 @@
 from django.urls import path
 from . import views
-from .views import (addDetail, massTimes, readingDetails, contact, FAQ,
+from .views import (massTimes, readingDetails, contact, FAQ,
  addBanner, updateBanner, addFAQ, bannerList, FAQList, updateFAQ,
  announcementDetails, eventDetails, calendar, eventList, announcementList,
  homeView, addEvent, addAnnouncement, addEvent, addAnnouncement, timeList, updateTime, updateReading,
- updateAnnouncement, updateDetail, updateEvent, readingList, send_email)
+ updateAnnouncement, updateEvent, readingList, send_email)
 
 urlpatterns = [
     path('', homeView.as_view(), name='home'),
@@ -29,14 +29,12 @@ urlpatterns = [
     path('add-event', addEvent.as_view(), name='add-event'),
     path('add-banner', addBanner.as_view(), name='add-banner'),
     path('add-announcement', addAnnouncement.as_view(), name='add-announcement'),
-    path('add-detail', addDetail.as_view(), name='add-detail'),
     path('add-FAQ', addFAQ.as_view(), name='add-FAQ'),
     path('update-time/<int:pk>', updateTime.as_view(), name='update-time'),
     path('update-reading/<int:pk>', updateReading.as_view(), name='update-reading'),
     path('update-event/<int:pk>', updateEvent.as_view(), name='update-event'),
     path('update-banner/<int:pk>', updateBanner.as_view(), name='update-banner'),
     path('update-announcement/<int:pk>', updateAnnouncement.as_view(), name='update-announcement'),
-    path('update-detail/<int:pk>', updateDetail.as_view(), name='update-detail'),
     path('update-FAQ/<int:pk>', updateFAQ.as_view(), name='update-FAQ'),
     path('times', timeList.as_view(), name='times'),
     path('readings', readingList.as_view(), name='readings'),

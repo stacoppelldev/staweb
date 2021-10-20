@@ -55,11 +55,7 @@
                               <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
                                 <i class="bx bx-message-square-detail"></i>
                                 <h4>{{ announcement.message }}</h4>
-                                {% endfor %}
-                                {% for detail in details %}
-                                <!-- {% if detail.message %} -->
-                                <p>{{ detail.message }}</p>
-                                <!-- {% endif %} -->
+                                <p>{{ announcement.detail }}</p>
                                 {% endfor %}
 
                               </div>
