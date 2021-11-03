@@ -48,6 +48,7 @@ class reading(models.Model):
 class announcement(models.Model):
     message = models.CharField(null=True, max_length=100)
     detail = RichTextField(null=True, blank=True, max_length=300)
+    announcement_files = models.FileField(upload_to='files', blank=True, null=True)
     order = models.IntegerField()
 
     def __str__(self):
