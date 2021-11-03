@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from ckeditor.fields import RichTextField
 
 EVENT_STATUS = (
     ('Active', 'Active'),
@@ -45,8 +46,8 @@ class reading(models.Model):
         return '%s %s' % (self.date, self.reading_1)
 
 class announcement(models.Model):
-    message = models.CharField(max_length=100)
-    detail = models.TextField(null=True, max_length=300)
+    message = models.CharField(null=True, max_length=100)
+    detail = RichTextField(null=True, blank=True, max_length=300)
     order = models.IntegerField()
 
     def __str__(self):

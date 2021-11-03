@@ -69,6 +69,11 @@ def getInvolved(request):
     print('test')
     return render(request, 'church/getInvolved.html', {'title': 'About'})
 
+class template(TemplateView):
+    template_name = "church/template.html"
+
+class templateOptions(TemplateView):
+    template_name = "church/templateOptions.html"
 
 class calendar(TemplateView):
     template_name = "church/calendar.html"

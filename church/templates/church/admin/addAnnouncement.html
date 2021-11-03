@@ -20,6 +20,7 @@
           <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
+              {{ form.media }}
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">

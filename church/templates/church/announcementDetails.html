@@ -55,7 +55,7 @@
                               <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
                                 <i class="bx bx-message-square-detail"></i>
                                 <h4>{{ announcement.message }}</h4>
-                                <p>{{ announcement.detail }}</p>
+                                <p>{{ announcement.detail|safe }}</p>
                                 {% endfor %}
 
                               </div>
