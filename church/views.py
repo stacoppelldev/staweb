@@ -2,7 +2,7 @@ from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic.edit import FormMixin
 from django.views.generic import CreateView, TemplateView, UpdateView, ListView, FormView
-from .models import event, time, reading, announcement, faq, banner
+from .models import event, time, reading, announcement, faq, banner, page
 from .forms import (contactForm, addFAQForm, addBannerForm, addEventForm,
  addAnnouncementForm, updateBannerForm, updateFAQForm, updateAnnouncementForm,
   updateEventForm, updateTimeForm, updateReadingForm)
@@ -69,8 +69,15 @@ def getInvolved(request):
     print('test')
     return render(request, 'church/getInvolved.html', {'title': 'About'})
 
-class template(TemplateView):
+class pageView(TemplateView):
     template_name = "church/template.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(pageView, self).get_context_data(**kwargs)
+        pageName = self.kwargs.get("name")
+        context['pageContent'] = page.objects.get(title=pageName)
+        print(page.objects.filter(title=pageName))
+        return context
 
 class templateOptions(TemplateView):
     template_name = "church/templateOptions.html"

@@ -1,10 +1,10 @@
 from django.urls import path
 from . import views
-from .views import (massTimes, readingDetails, contact, FAQ,
+from .views import (massTimes, pageView, readingDetails, contact, FAQ,
  addBanner, templateOptions, updateBanner, addFAQ, bannerList, FAQList, updateFAQ,
  announcementDetails, eventDetails, calendar, eventList, announcementList,
  homeView, addEvent, addAnnouncement, addEvent, addAnnouncement, timeList, updateTime, updateReading,
- updateAnnouncement, updateEvent, readingList, template, send_email)
+ updateAnnouncement, updateEvent, readingList, page, send_email)
 
 urlpatterns = [
     path('', homeView.as_view(), name='home'),
@@ -22,7 +22,7 @@ urlpatterns = [
     path('announcements', announcementList.as_view(), name='announcements'),
     path('FAQ', FAQ.as_view(), name='FAQ'),
     path('readingDetails/<int:pk>', readingDetails.as_view(), name='reading-details'),
-    path('template/', template.as_view(), name='template'),
+    path('page/<str:name>', pageView.as_view(), name='page'),
     path('templateOptions/', templateOptions.as_view(), name='template-options'),
     path('send-email/', send_email, name='send-email'),
 

@@ -13,7 +13,17 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 import dj_database_url
+
+# ENABLE FOR PROD
+DATABASE_URL = os.environ.get('DATABASE_URL')
+SECRET_KEY = os.environ.get('SK')
+Debug = True
+
 # from .local import SK, DB, EMAIL, PASSWORD
+# DATABASE_URL = DB
+# SECRET_KEY = SK
+# Debug = True
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,14 +31,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SK')
-# SECRET_KEY = SK
-
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '.ngrok.io', 'staweb.herokuapp.com']
 
@@ -88,8 +90,7 @@ WSGI_APPLICATION = 'staweb.wsgi.application'
 #     }
 # }
 
-DATABASE_URL = os.environ.get('DATABASE_URL')
-# DATABASE_URL = DB
+
 
 DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 

@@ -67,3 +67,18 @@ class banner(models.Model):
 
     def __str__(self):
         return '%s %s' % (self.message, self.hyperlink)
+
+class page(models.Model):
+    title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=250, blank=True, null=True)
+    call_to_action = models.CharField(max_length=250, blank=True, null=True)
+    call_to_action_url = models.CharField(max_length=250, blank=True, null=True)
+    cover_image = models.ImageField(upload_to='images', blank=True, null=True)
+    section_1_title = models.CharField(max_length=200, null=True, blank=True)
+    section_1_body = RichTextField(null=True, blank=True, max_length=5000)
+    image2 = models.ImageField(upload_to='images', blank=True, null=True)
+    section_2_title = models.CharField(max_length=200, null=True, blank=True)
+    section_2_body = RichTextField(null=True, blank=True, max_length=5000)
+
+    def __str__(self):
+        return '%s' % (self.title)
