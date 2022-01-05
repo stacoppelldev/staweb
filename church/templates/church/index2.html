@@ -19,6 +19,7 @@
 
   <main id="main">
 
+        {% if announcement %}
         <!-- ======= Features Section ======= -->
         <section id="features" class="features">
           <div class="container">
@@ -44,8 +45,10 @@
           </div>
         </section>
         <!-- End Features Section -->
+        {% endif %}
 
 
+    {% if events %}
     <!-- ======= Steps Section ======= -->
     <section id="steps" class="steps section-bg">
       <div class="container">
@@ -69,6 +72,7 @@
         <div class="text-center"><a href="{% url 'calendar' %}" class="btn btn-outline-info" type="submit">View Full Calendar</a></div>
       </div>
     </section><!-- End Steps Section -->
+    {% endif %}
 
 
     <!-- ======= Services Section ======= -->
@@ -78,11 +82,25 @@
         <div class="section-title" data-aos="fade-up">
           <div class="inline">
           <a href="{% url 'mass-times' %}"><h2>Mass Times</h2></a>
-          <a href="https://www.youtube.com/channel/UChF81fl7xPJWdWzx3Wgu0Lw" class="linkedin"><i class="bx bxl-youtube"></i></a>
         </div>
           <p>Be sure to check our calendar for special event times</p>
         </div>
 
+        <div class="mass-box"  data-aos="fade-up" data-aos-delay="100">
+          <div class="mass-center" data-aos="fade-up">
+            <!-- <div class="icon-box icon-box-pink"> -->
+              <!-- <div class="icon"><i class="bx bxs-church"></i></div> -->
+              <h4 class="title"><a href="">Online Streaming</a></h4>
+              <div class="mass-align">
+
+              <a href="https://www.youtube.com/channel/UChF81fl7xPJWdWzx3Wgu0Lw" class="linkedin"><i class="bx bxl-youtube"></i></a>
+              <a href="https://www.youtube.com/channel/UChF81fl7xPJWdWzx3Wgu0Lw" class="linkedin"><i class="bx bxl-facebook bx-xl"></i></a>
+
+
+              </div>
+            <!-- </div> -->
+          </div>
+          </div>
 
           <div class="mass-box"  data-aos="fade-up" data-aos-delay="100">
           <div class="mass-center" data-aos="fade-up">

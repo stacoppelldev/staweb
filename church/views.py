@@ -30,7 +30,7 @@ class homeView(TemplateView):
         context = super(homeView, self).get_context_data(**kwargs)
 
         today = datetime.today().strftime('%Y-%m-%d')
-        context['events'] = event.objects.filter(start_date__gte=today,start_date__lte=("2025-01-26")).filter(event_status='Active')
+        context['events'] = event.objects.filter(start_date__gte=today,start_date__lte=("2025-01-26")).filter(event_status='Active').order_by("start_date")
         context['sundayMassMalayalam'] = time.objects.get(title="Sunday Mass Malayalam")
         context['sundayMassEnglish'] = time.objects.get(title="Sunday Mass English")
         context['weekdayMassMTWS'] = time.objects.get(title="Weekday Mass MTWS")
@@ -172,6 +172,9 @@ class readingDetails(TemplateView):
         context['readings'] = reading.objects.filter(id=e)
 
         return context
+
+class media(TemplateView):
+    template_name = 'church/media.html'
 
 
 # ADMIN VIEWS
@@ -330,8 +333,8 @@ class eventList(ListView):
 
 class announcementList(ListView):
     model = announcement
-    template_name = 'church/admin/announcements.html'
-    context_object_name = 'announcements'
+    template_name = 'church/announcements.html'
+    context_object_name = 'announcement'
     paginate_by = 40
 
     def get_queryset(self):

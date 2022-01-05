@@ -1749,3 +1749,19 @@ margin-left: 120px;
 .sep {
   justify-content: space-between;
 }
+
+/* CONTACT US LIST */
+
+
+.contactItem {
+  background-color: #b8b8b8;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.contactItem p {
+  margin-left: 5px;
+}
