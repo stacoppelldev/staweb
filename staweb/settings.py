@@ -22,7 +22,7 @@ Debug = True
 # from .local import SK, DB, EMAIL, PASSWORD
 # DATABASE_URL = DB
 # SECRET_KEY = SK
-# Debug = True
+# DEBUG = True
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'ckeditor'
+    'ckeditor',
+    'captcha'
 ]
 
 MIDDLEWARE = [

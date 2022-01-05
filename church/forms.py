@@ -5,6 +5,7 @@ from django.forms import ModelForm
 from django.core.mail import send_mail
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Field, Layout
+from captcha.fields import CaptchaField
 
 
 
@@ -148,6 +149,7 @@ class contactForm(forms.Form):
     email = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     cell = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     message = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    captcha = CaptchaField()
 
     def clean(self):
         user_email = self.cleaned_data['email']
