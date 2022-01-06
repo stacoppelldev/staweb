@@ -148,7 +148,7 @@ class contactForm(forms.Form):
     subject = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     email = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     cell = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    message = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    message = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control'}))
     captcha = CaptchaField()
 
     def clean(self):
