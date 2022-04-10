@@ -60,7 +60,7 @@
           <li class="drop-down"><a href="{% url 'about' %}">About Us</a>
             <ul>
               <li><a href="{% url 'about' %}">History</a></li>
-              <li><a href="#">Sacraments</a></li>
+              <!-- <li><a href="{% url 'page' name='Sacraments' %}">Sacraments</a></li> -->
             </ul>
           </li>
           <li class="drop-down"><a href="">Faith Formation</a>
@@ -73,12 +73,12 @@
             <ul>
               <li><a href="{% url 'page' name='Legion of Mary' %}">Legion of Mary</a></li>
               <li><a href="{% url 'page' name='St. Vincent De Paul' %}">St. Vincent De Paul</a></li>
-              <li><a href="{% url 'page' name='Youth' %}">Youth</a></li>
+              <!-- <li><a href="{% url 'page' name='Youth' %}">Youth</a></li> -->
               <li><a href="{% url 'page' name='SMCC' %}">SMCC</a></li>
-              <li><a href="{% url 'page' name='Little Flower Mission' %}">Little Flower Mission</a></li>
-              <li><a href="{% url 'page' name='Music' %}">Music</a></li>
-              <li><a href="{% url 'page' name='Safe Environment' %}">Safe Environment</a></li>
-              <li><a href="{% url 'page' name='Pro-Life' %}">Pro-Life</a></li>
+              <!-- <li><a href="{% url 'page' name='Little Flower Mission' %}">Little Flower Mission League</a></li> -->
+              <!-- <li><a href="{% url 'page' name='Music' %}">Music</a></li> -->
+              <!-- <li><a href="{% url 'page' name='Safe Environment' %}">Safe Environment</a></li> -->
+              <!-- <li><a href="{% url 'page' name='Pro-Life' %}">Pro-Life</a></li> -->
             </ul>
           </li>
           <li class="drop-down"><a href="{% url 'mass-times' %}">Mass Timings</a>
@@ -87,7 +87,7 @@
               <li><a href="#">Live Streaming</a></li>
             </ul>
           </li>
-          <li><a href="{% url 'media' %}">Media</a></li>
+          <!-- <li><a href="{% url 'media' %}">Media</a></li> -->
           <li><a href="{% url 'announcements' %}">Announcements</a></li>
           <li><a href="{% url 'contact' %}">Contact Us</a></li>
           {% if request.user.is_superuser %}
