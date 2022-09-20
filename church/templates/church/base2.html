@@ -57,37 +57,38 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="{% url 'home' %}">Home</a></li>
-          <li class="drop-down"><a href="{% url 'about' %}">About Us</a>
+          <!-- <li class="drop-down"><a href="{% url 'about' %}">About Us</a>
             <ul>
               <li><a href="{% url 'about' %}">History</a></li>
-              <!-- <li><a href="{% url 'page' name='Sacraments' %}">Sacraments</a></li> -->
             </ul>
-          </li>
-          <li class="drop-down"><a href="">Faith Formation</a>
+          </li> -->
+          <li><a href="{% url 'about' %}">About Us</a></li>
+          <!-- <li class="drop-down"><a href="">Faith Formation</a>
             <ul>
               <li><a href="{% url 'page' name='CCD' %}">CCD</a></li>
               <li><a href="{% url 'page' name='Didache' %}">Didache</a></li>
             </ul>
-          </li>
-          <li class="drop-down"><a href="">Ministries</a>
+          </li> -->
+          <!-- <li class="drop-down"><a href="">Ministries</a>
             <ul>
               <li><a href="{% url 'page' name='Legion of Mary' %}">Legion of Mary</a></li>
               <li><a href="{% url 'page' name='St. Vincent De Paul' %}">St. Vincent De Paul</a></li>
-              <!-- <li><a href="{% url 'page' name='Youth' %}">Youth</a></li> -->
+              <li><a href="{% url 'page' name='Youth' %}">Youth</a></li>
               <li><a href="{% url 'page' name='SMCC' %}">SMCC</a></li>
-              <!-- <li><a href="{% url 'page' name='Little Flower Mission' %}">Little Flower Mission League</a></li> -->
-              <!-- <li><a href="{% url 'page' name='Music' %}">Music</a></li> -->
-              <!-- <li><a href="{% url 'page' name='Safe Environment' %}">Safe Environment</a></li> -->
-              <!-- <li><a href="{% url 'page' name='Pro-Life' %}">Pro-Life</a></li> -->
+              <li><a href="{% url 'page' name='Little Flower Mission' %}">Little Flower Mission League</a></li>
+              <li><a href="{% url 'page' name='Music' %}">Music</a></li>
+              <li><a href="{% url 'page' name='Safe Environment' %}">Safe Environment</a></li>
+              <li><a href="{% url 'page' name='Pro-Life' %}">Pro-Life</a></li>
             </ul>
-          </li>
-          <li class="drop-down"><a href="{% url 'mass-times' %}">Mass Timings</a>
+          </li> -->
+          <!-- <li class="drop-down"><a href="{% url 'mass-times' %}">Mass Timings</a>
             <ul>
               <li><a href="#">Bible Readings</a></li>
               <li><a href="#">Live Streaming</a></li>
             </ul>
-          </li>
+          </li> -->
           <!-- <li><a href="{% url 'media' %}">Media</a></li> -->
+          <li><a href="{% url 'mass-times' %}">Mass Timings</a></li>
           <li><a href="{% url 'announcements' %}">Announcements</a></li>
           <li><a href="{% url 'contact' %}">Contact Us</a></li>
           {% if request.user.is_superuser %}
