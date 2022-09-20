@@ -16,7 +16,7 @@ from django.urls import reverse
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.contrib import messages
-
+from django.contrib.messages.views import SuccessMessageMixin
 
 @user_passes_test(lambda u: u.is_superuser)
 def alphonsa(request):
@@ -111,10 +111,11 @@ def meetTheVicars(request):
 #     print('test')
 #     return render(request, 'church/contactUs.html', {'title': 'About'})
 
-class contact(FormView):
+class contact(SuccessMessageMixin, FormView):
     template_name = 'church/contactUs.html'
     form_class = contactForm
     success_url = '/'
+    success_message = "Message successfully sent"
 
 def services(request):
     return render(request, 'church/services.html')
@@ -333,7 +334,7 @@ class eventList(ListView):
 
 class announcementList(ListView):
     model = announcement
-    template_name = 'church/announcements.html'
+    template_name = 'church/admin/announcements.html'
     context_object_name = 'announcement'
     paginate_by = 40
 

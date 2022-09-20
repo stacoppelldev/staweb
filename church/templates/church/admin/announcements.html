@@ -8,21 +8,29 @@
 <br>
 <main id="main">
 
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
-        <div class="container">
+  <!-- ======= Features Section ======= -->
+  <section id="features" class="features">
+      <div class="container">
 
-          <div class="section-title" data-aos="fade-up">
+        <div class="section-title" data-aos="fade-up">
             <h2>Announcements</h2>
+            {% if request.user.is_superuser %}
             <a class="add-button" href="{% url 'add-announcement' %}"><span>add</span><i class="bx bx-plus"></i></a>
+            {% endif %}
           </div>
+
+
           <div class="row">
-            {% for announcement in announcements %}
+            {% for announcements in announcement %}
             <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
               <ul class="nav nav-tabs flex-column">
                 <li class="nav-item">
-                    <a class="nav-link active show marginTop5" href="/update-announcement/{{ announcement.id }}">
-                    <h4>{{ announcement.message }}</h4>
+                  {% if request.user.is_superuser %}
+                    <a class="nav-link active show marginTop5" href="/update-announcement/{{ announcements.id }}">
+                  {% else %}
+                  <a class="nav-link active show marginTop5" href="/announcementDetails/{{ announcements.id }}">
+                  {% endif %}
+                    <h4>{{ announcements.message }}</h4>
                 </a>
                 </li>
               </ul>

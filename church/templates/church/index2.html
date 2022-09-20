@@ -64,7 +64,9 @@
             <a href="/eventDetails/{{ event.id }}">
             <h4>{{ event.title }}</h4>
           </a>
+          {% if event.description %}
             <p>{{ event.description }}</p>
+          {% endif %}
           </div>
           {% endfor %}
 
@@ -177,7 +179,7 @@
           <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
             <ul class="nav nav-tabs flex-column">
               <li class="nav-item">
-                  <a class="nav-link active show marginTop5" href="/update-announcement/{{ announcement.id }}">
+                  <a class="nav-link active show marginTop5" href="/readingDetails/{{ reading.id }}">
                       <p class="description"><Strong>1st Reading</Strong></p>
                       <p class="description">{{ reading.reading_1 }}</p>
               </a>
@@ -188,7 +190,7 @@
           <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
             <ul class="nav nav-tabs flex-column">
               <li class="nav-item">
-                  <a class="nav-link active show marginTop5" href="/update-announcement/{{ announcement.id }}">
+                  <a class="nav-link active show marginTop5" href="/readingDetails/{{ reading.id }}">
                       <p class="description"><Strong>2nd Reading</Strong></p>
                       <p class="description">{{ reading.reading_2 }}</p>
               </a>
@@ -199,7 +201,7 @@
           <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
             <ul class="nav nav-tabs flex-column">
               <li class="nav-item">
-                  <a class="nav-link active show marginTop5" href="/update-announcement/{{ announcement.id }}">
+                  <a class="nav-link active show marginTop5" href="/readingDetails/{{ reading.id }}">
                       <p class="description"><Strong>Gospel Reading</Strong></p>
                       <p class="description">{{ reading.gospel }}</p>
               </a>
