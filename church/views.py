@@ -31,8 +31,9 @@ class homeView(TemplateView):
 
         today = datetime.today().strftime('%Y-%m-%d')
         context['events'] = event.objects.filter(start_date__gte=today,start_date__lte=("2025-01-26")).filter(event_status='Active').order_by("start_date")
-        context['sundayMassMalayalam'] = time.objects.get(title="Sunday Mass Malayalam")
-        context['sundayMassEnglish'] = time.objects.get(title="Sunday Mass English")
+        context['sundayMassMalayalam1'] = time.objects.get(title="Holy Qurbana Malayalam1")
+        context['sundayMassMalayalam'] = time.objects.get(title="Holy Qurbana Malayalam")
+        context['sundayMassEnglish'] = time.objects.get(title="Holy Qurbana English")
         context['weekdayMassMTWS'] = time.objects.get(title="Weekday Mass MTWS")
         context['weekdayMassTTH'] = time.objects.get(title="Weekday Mass TTH")
         context['adorationMTWS'] = time.objects.get(title="Adoration MTWS")
@@ -126,8 +127,9 @@ class massTimes(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(massTimes, self).get_context_data(**kwargs)
-        context['sundayMassMalayalam'] = time.objects.get(title="Sunday Mass Malayalam")
-        context['sundayMassEnglish'] = time.objects.get(title="Sunday Mass English")
+        context['sundayMassMalayalam1'] = time.objects.get(title="Holy Qurbana Malayalam1")
+        context['sundayMassMalayalam'] = time.objects.get(title="Holy Qurbana Malayalam")
+        context['sundayMassEnglish'] = time.objects.get(title="Holy Qurbana English")
         context['weekdayMassMTWS'] = time.objects.get(title="Weekday Mass MTWS")
         context['weekdayMassTTH'] = time.objects.get(title="Weekday Mass TTH")
         return context
