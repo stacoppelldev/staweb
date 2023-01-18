@@ -31,6 +31,10 @@
             <div class="row">
               {% for announcements in announcement %}
               <p>{{ announcements.detail|safe }}</p>
+              {% if announcements.announcement_files %}
+              <a href="{{ announcements.announcement_files.url }}" download="">Announcement File</a>
+              {% endif %}
+
               {% endfor %}
             </div>
     
@@ -158,7 +162,7 @@
 
       </div>
     </section><!-- End Services Section -->
-
+<!-- 
     <section id="features" class="features">
       <div class="container">
 
@@ -204,7 +208,7 @@
 
 
       </div>
-    </section>
+    </section> -->
 
     <!-- ======= Testimonials Section ======= -->
     <!-- <section id="testimonials" class="testimonials">
