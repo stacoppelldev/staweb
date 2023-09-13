@@ -25,7 +25,7 @@ def alphonsa(request):
 
 class homeView(TemplateView):
     template_name = "church/index2.html"
-
+    
     def get_context_data(self, **kwargs):
         context = super(homeView, self).get_context_data(**kwargs)
 
@@ -38,7 +38,6 @@ class homeView(TemplateView):
         context['weekdayMassTTH'] = time.objects.get(title="Weekday Mass TTH")
         context['adorationMTWS'] = time.objects.get(title="Adoration MTWS")
         context['adorationTHF'] = time.objects.get(title="Adoration THF")
-        context['confession'] = time.objects.get(title="Confession")
         context['confession'] = time.objects.get(title="Confession")
         try:
             context['reading'] = reading.objects.get(date=today)
@@ -357,6 +356,6 @@ def send_email(request):
     print('email sent')
     e = request.POST['email']
     print(e)
-    send_mail('Thank you for subscribing', 'Subscribed Successfully', 'devalphonsa@gmail.com', [e])
+    # send_mail('Thank you for subscribing', 'Subscribed Successfully', 'devalphonsa@gmail.com', [e])
     messages.success(request, 'Successfully subscribed!')
     return HttpResponseRedirect('/')
