@@ -20,7 +20,6 @@ from django.contrib.messages.views import SuccessMessageMixin
 
 @user_passes_test(lambda u: u.is_superuser)
 def alphonsa(request):
-    print('test')
     return render(request, 'church/admin/alphonsa.html', {'title': 'Home'})
 
 class homeView(TemplateView):
@@ -48,25 +47,19 @@ class homeView(TemplateView):
         context['banners'] = banner.objects.all()
         return context
 
-
 def about(request):
-    print('test')
     return render(request, 'church/about.html', {'title': 'About'})
 
 def faithFormation(request):
-    print('test')
     return render(request, 'church/faithFormation.html', {'title': 'About'})
 
 def sacraments(request):
-    print('test')
     return render(request, 'church/sacraments.html', {'title': 'About'})
 
 def give(request):
-    print('test')
     return render(request, 'church/give.html', {'title': 'About'})
 
 def getInvolved(request):
-    print('test')
     return render(request, 'church/getInvolved.html', {'title': 'About'})
 
 class pageView(TemplateView):
@@ -100,15 +93,12 @@ class calendar(TemplateView):
     #     return context
 
 def meetTheVicars(request):
-    print('test')
     return render(request, 'church/meetTheVicars.html', {'title': 'About'})
 
 # def contact(request):
-#     print('test')
 #     return render(request, 'church/contactUs.html', {'title': 'About'})
 
 # def contactUs(request):
-#     print('test')
 #     return render(request, 'church/contactUs.html', {'title': 'About'})
 
 class contact(SuccessMessageMixin, FormView):
@@ -140,7 +130,6 @@ class FAQ(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(FAQ, self).get_context_data(**kwargs)
         context['faqs'] = faq.objects.all()
-
         return context
 
 class eventDetails(TemplateView):
@@ -151,7 +140,6 @@ class eventDetails(TemplateView):
         context = super(eventDetails, self).get_context_data(**kwargs)
         e = self.kwargs.get('pk')
         context['events'] = event.objects.filter(id=e)
-
         return context
 
 class announcementDetails(TemplateView):
@@ -172,7 +160,6 @@ class readingDetails(TemplateView):
         context = super(readingDetails, self).get_context_data(**kwargs)
         e = self.kwargs.get('pk')
         context['readings'] = reading.objects.filter(id=e)
-
         return context
 
 class media(TemplateView):
@@ -180,7 +167,7 @@ class media(TemplateView):
 
 
 # ADMIN VIEWS
-
+# CREATE
 
 class addEvent(CreateView):
     template_name = 'church/admin/addEvent.html'
@@ -226,6 +213,8 @@ class addFAQ(CreateView):
         messages.success(self.request, 'FAQ added successfully')
         return super().form_valid(form)
 
+# UPDATE
+
 class updateTime(UpdateView):
     template_name = 'church/admin/updateTime.html'
     model = time
@@ -234,7 +223,7 @@ class updateTime(UpdateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
-        messages.success(self.request, 'Edit made successfully')
+        messages.success(self.request, 'Updated successfully')
         return super().form_valid(form)
 
 class updateBanner(UpdateView):
@@ -245,7 +234,7 @@ class updateBanner(UpdateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
-        messages.success(self.request, 'Edit made successfully')
+        messages.success(self.request, 'Updated successfully')
         return super().form_valid(form)
 
 class updateReading(UpdateView):
@@ -256,7 +245,7 @@ class updateReading(UpdateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
-        messages.success(self.request, 'Edit made successfully')
+        messages.success(self.request, 'Updated successfully')
         return super().form_valid(form)
 
 class updateEvent(UpdateView):
@@ -267,7 +256,7 @@ class updateEvent(UpdateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
-        messages.success(self.request, 'Edit made successfully')
+        messages.success(self.request, 'Updated successfully')
         return super().form_valid(form)
 
 class updateAnnouncement(UpdateView):
@@ -278,7 +267,7 @@ class updateAnnouncement(UpdateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
-        messages.success(self.request, 'Edit made successfully')
+        messages.success(self.request, 'Updated successfully')
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
@@ -293,9 +282,10 @@ class updateFAQ(UpdateView):
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
-        messages.success(self.request, 'Edit made successfully')
+        messages.success(self.request, 'Updated successfully')
         return super().form_valid(form)
 
+# READ (LISTING)
 
 class timeList(ListView):
     model = time
@@ -353,9 +343,7 @@ class FAQList(ListView):
 
 
 def send_email(request):
-    print('email sent')
     e = request.POST['email']
-    print(e)
     # send_mail('Thank you for subscribing', 'Subscribed Successfully', 'devalphonsa@gmail.com', [e])
     messages.success(request, 'Successfully subscribed!')
     return HttpResponseRedirect('/')
