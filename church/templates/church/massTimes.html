@@ -15,12 +15,37 @@
         <h2>Mass Timings</h2>
       </div>
 
+      <div class="card-group">
+        <div class="card" data-aos="fade-right">
+          <div class="card-body">
+            <a class="nav-link active show marginTop5" href="/update-announcement/{{ announcement.id }}">
+              <p class="description mb-1"><Strong>Sunday Mass</Strong></p>
+              <p class="description">{{ sundayMassMalayalam1.time }} Solemn Holy Qurbana (Malayalam)</p>
+              <p class="description">{{ sundayMassMalayalam.time }} Solemn Holy Qurbana (Malayalam)</p>
+              <p class="description">{{ sundayMassEnglish.time }} Solemn Holy Qurbana (English)</p>
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body" data-aos="fade-right">
+            <a class="nav-link active show marginTop5" href="/update-announcement/{{ announcement.id }}">
+              <p class="description mb-1"><Strong>Monday - Tuesday - Wednesday - Saturday:</Strong></p>
+              <p class="description mb-4">{{ weekdayMassMTWS.time }} Holy Qurbana (Malayalam)</p>
+              <p class="description mb-1"><Strong>Thursday - Friday:</Strong></p>
+              <p class="description">{{ weekdayMassTTH.time }} Holy Qurbana (Malayalam). 
+                <span class="novena">Followed by Novena</span>
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
           <ul class="nav nav-tabs flex-column">
             <li class="nav-item">
               <a class="nav-link active show marginTop5" href="/update-announcement/{{ announcement.id }}">
-                <p class="description"><Strong>Sunday Mass</Strong></p>
+                <p class="description mb-1"><Strong>Sunday Mass</Strong></p>
                 <p class="description">{{ sundayMassMalayalam1.time }} Solemn Holy Qurbana (Malayalam)</p>
                 <p class="description">{{ sundayMassMalayalam.time }} Solemn Holy Qurbana (Malayalam)</p>
                 <p class="description">{{ sundayMassEnglish.time }} Solemn Holy Qurbana (English)</p>
@@ -33,9 +58,9 @@
           <ul class="nav nav-tabs flex-column">
             <li class="nav-item">
               <a class="nav-link active show marginTop5" href="/update-announcement/{{ announcement.id }}">
-                <p class="description"><Strong>Monday - Tuesday - Wednesday - Saturday:</Strong></p>
-                <p class="description">{{ weekdayMassMTWS.time }} Holy Qurbana (Malayalam)</p>
-                <p class="description"><Strong>Thursday - Friday:</Strong></p>
+                <p class="description mb-1"><Strong>Monday - Tuesday - Wednesday - Saturday:</Strong></p>
+                <p class="description mb-4">{{ weekdayMassMTWS.time }} Holy Qurbana (Malayalam)</p>
+                <p class="description mb-1"><Strong>Thursday - Friday:</Strong></p>
                 <p class="description">{{ weekdayMassTTH.time }} Holy Qurbana (Malayalam). <span class="novena">Followed by Novena</span></p>
               </a>
             </li>
