@@ -1,45 +1,45 @@
 {% extends "church/base2.html" %}
 {% load static %}
+
 {% block content %}
 <br>
 <br>
-<main id="main">    
-    
-    <!-- ======= F.A.Q Section ======= -->
-    <section id="faq" class="faq section-bg">
-        <div class="container">
-  
-          <div class="section-title" data-aos="fade-up">
-            <h2>F.A.Q</h2>
-            <p>Have questions? We will soon update this page..</p>
-           <!-- <p>Have questions? Check out our most commonly asked questions below!</p>  -->
-          </div>
-  
-  
-          <div class="faq-list">
-            <ul>
-  
-              {% for faq in faqs %}
-              <li data-aos="fade-up" data-aos-delay="100">
-                <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-2" class="collapsed">{{ faq.question }}<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                <div id="faq-list-2" class="collapse" data-parent=".faq-list">
-                  <p>
-                    {{ faq.answer }}
-                  </p>
-                </div>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
-  
-  
-        </div>
-      </section><!-- End F.A.Q Section -->
-      {% if request.user.is_superuser %}
-      <div class="section-bg">
-      <div class="text-center"><a href="{% url 'alphonsa' %}" class="greenButton">Edit</a></div>
+
+<main id="main">
+  <section id="faq" class="faq section-bg">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>F.A.Q</h2>
+        <p>Have questions? We will soon update this page..</p>
       </div>
-      {% else %}
-      {% endif %}
-    </main>
-    {% endblock %}
+
+      <div class="faq-list">
+        <ul>
+          {% for faq in faqs %}
+          <li data-aos="fade-up" data-aos-delay="100">
+            <i class="bx bx-help-circle icon-help"></i> 
+            <a data-toggle="collapse" href="#faq-list-2" class="collapsed">{{ faq.question }}>
+              <i class="bx bx-chevron-down icon-show"></i>
+              <i class="bx bx-chevron-up icon-close"></i>
+            </a>
+
+            <div id="faq-list-2" class="collapse" data-parent=".faq-list">
+              <p>{{ faq.answer }}</p>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {% if request.user.is_superuser %}
+  <div class="section-bg">
+    <div class="text-center">
+      <a href="{% url 'alphonsa' %}" class="greenButton">Edit</a>
+    </div>
+  </div>
+  {% else %}
+  {% endif %}
+</main>
+{% endblock %}

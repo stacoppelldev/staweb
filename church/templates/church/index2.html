@@ -1,5 +1,6 @@
 {% extends "church/base2.html" %}
 {% load static %}
+
 {% block banner %}
 <div id="bannerid" class="banner">
   {% for banner in banners %}
@@ -11,18 +12,15 @@
 {% endblock %}
 
 {% block content %}
-<!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
   <div class="container text-center text-md-left" data-aos="fade-up">
-    <h1>Welcome to St. Alphonsa Catholic Church</h1>
+    <h1>Welcome to Saint Alphonsa Catholic Church</h1>
     <h2>Come and Hear His words as we Worship and Praise</h2>
-    <!-- <a href="{% url 'about' %}" class="btn-get-started scrollto">New? Learn More</a> -->
   </div>
 </section>
 
 <main id="main">
   {% if announcement %}
-  <!-- ======= Features Section ======= -->
   <section id="features" class="features">
     <div class="container">
       <div class="section-title" data-aos="fade-up">
@@ -44,7 +42,6 @@
   {% endif %}
 
   {% if events %}
-  <!-- ======= Steps Section ======= -->
   <section id="steps" class="steps section-bg">
     <div class="container">
       <div class="section-title" data-aos="fade-up">
@@ -72,7 +69,6 @@
   </section>
   {% endif %}
 
-  <!-- ======= Services Section ======= -->
   <section id="services" class="services">
     <div class="container">
       <div class="section-title" data-aos="fade-up">
@@ -109,7 +105,9 @@
             <p class="description"><Strong>Monday - Tuesday - Wednesday - Saturday:</Strong></p>
             <p class="description">{{ weekdayMassMTWS.time }} Holy Qurbana (Malayalam)</p>
             <p class="description"><Strong>Thursday - Friday:</Strong></p>
-            <p class="description">{{ weekdayMassTTH.time }} Holy Qurbana (Malayalam). <span class="novena">Followed by Novena</span></p>
+            <p class="description">{{ weekdayMassTTH.time }} Holy Qurbana (Malayalam). 
+              <span class="novena">Followed by Novena</span>
+            </p>
           </div>
         </div>
       </div>
