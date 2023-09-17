@@ -1,41 +1,33 @@
 {% extends "church/base2.html" %}
 {% load static %}
+
 {% block content %}
 <br>
 <br>
 <br>
 <br>
 <br>
+
 <main id="main">
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>About Us</h2>
+      </div>
 
-  
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>About Us</h2>
-              </div>
-          <div class="row">
-            <div class="col-xl-6 col-lg-7" data-aos="fade-right">
-              <img src="{% static 'assets/img/church.png' %}" class="img-fluid" alt="">
-            </div>
-            <div class="col-xl-6 col-lg-5 pt-5 pt-lg-0">
-              <p data-aos="fade-up">
-                
-                <p>St Alphonsa Syro-Malabar Catholic Church, Coppell started in the year 2007 as an outstation of St. Thomas Church Garland, to cater to the Syro-Malabar community of the neighboring cities. Initially, the Holy Eucharist was celebrated at St. Anne’s Church, Coppell, by Fr. Zacharias Thottuvelil. Later in September 2008, the community celebrations relocated to Christ our Savior Lutheran Church located at 140 S. Heartz Rd, Coppell. The Syro Malabar diocese of Chicago approved this as the Syro Malabar Catholic Mission DFW and appointed Fr. Saji Chakkittamuriyil as the first Director. After being elevated to the status of a mission, the community moved to a larger leased facility in Farmers branch, Texas. Eventually, in 2009, the community was blessed to have it’s own Church located at 200 S. Heartz Road, Coppell. </p>
-                <br>
-                <p>St. Alphonsa Church Coppell, was established on Oct. 12, 2009, which coincided with the canonization of St. Alphonsa – our patroness. In the beginning, we had 150 families as active members of this Parish community. Fr. Saji Chakkittamuriyil, the then Director of the mission blessed the Church and commenced the liturgical celebrations.  In the month of March 2010, the mission was erected as a Parish and the Church was consecrated by Mar Jacob Angadiath, the Bishop of Syro Malabar Catholic Diocese of Chicago. Fr. Varghese Naikkamparampil was appointed as the first Vicar of the parish.</p>
-                <br>
-                <p>Over the years, the community grew spiritually as well as in numbers. Within the past couple of years, there has been substantial increase in the number of faithful attending the liturgical services. The community grew to include 350 plus registered families. To accommodate these growing needs, the Church was expanded in 2014 under the able leadership of Fr. Johnsty Thachara, the Vicar. We have added 200 new Parking lots. The renovated Church was consecrated and dedicated by Mar George Cardinal Alencherry, the Major Archbishop of Syro MalabarChurch. A beautifully designed Chapel was blessed in April 2015, by Mar Joy Alapatt, the Auxiliary Bishop of the Syro Malabar Catholic Diocese of Chicago.</p>
-                <br>
-    <!-- St Alphonsa Syro-Malabar Catholic Church, Coppell started in the year 2007 as an outstation of St. Thomas Church Garland, to cater to the Syro-Malabar community of the neighboring cities. Initially, the Holy Eucharist was celebrated at St. Anne’s Church, Coppell, by Fr. Zacharias Thottuvelil. Later in September 2008, the community celebrations relocated to Christ our Savior Lutheran Church located at 140 S. Heartz Rd, Coppell. The Syro Malabar diocese of Chicago approved this as the Syro Malabar Catholic Mission DFW and appointed Fr. Saji Chakkittamuriyil as the first Director. After being elevated to the status of a mission, the community moved to a larger leased facility in Farmers branch, Texas. Eventually, in 2009, the community was blessed to have it’s own Church located at 200 S. Heartz Road, Coppell. -->
-
-              </p>
-            </div>
-          </div>
-  
+      <div class="row">
+        <div class="col-xl-6 col-lg-7" data-aos="fade-right">
+          <img src="{% static 'assets/img/church.png' %}" class="img-fluid" alt="">
         </div>
-      </section><!-- End About Section -->
-</div>
+        <div class="col-xl-6 col-lg-5 pt-5 pt-lg-0">
+          <div data-aos="fade-up">
+            <p>Saint Alphonsa Syro-Malabar Catholic Church, Coppell started in the year 2007 as an outstation of Saint Thomas Church Garland, to cater to the Syro-Malabar community of the neighboring cities. Initially, the Holy Eucharist was celebrated at Saint Anne’s Church, Coppell, by Fr. Zacharias Thottuvelil. Later in September 2008, the community celebrations relocated to Christ our Savior Lutheran Church located at 140 S. Heartz Rd, Coppell. The Syro Malabar diocese of Chicago approved this as the Syro Malabar Catholic Mission DFW and appointed Fr. Saji Chakkittamuriyil as the first Director. After being elevated to the status of a mission, the community moved to a larger leased facility in Farmers branch, Texas. Eventually, in 2009, the community was blessed to have it’s own Church located at 200 S. Heartz Road, Coppell.</p>
+            <p>Saint Alphonsa Church Coppell, was established on Oct. 12, 2009, which coincided with the canonization of Saint Alphonsa – our patroness. In the beginning, we had 150 families as active members of this Parish community. Fr. Saji Chakkittamuriyil, the then Director of the mission blessed the Church and commenced the liturgical celebrations.  In the month of March 2010, the mission was erected as a Parish and the Church was consecrated by Mar Jacob Angadiath, the Bishop of Syro Malabar Catholic Diocese of Chicago. Fr. Varghese Naikkamparampil was appointed as the first Vicar of the parish.</p>
+            <p>Over the years, the community grew spiritually as well as in numbers. Within the past couple of years, there has been substantial increase in the number of faithful attending the liturgical services. The community grew to include 350 plus registered families. To accommodate these growing needs, the Church was expanded in 2014 under the able leadership of Fr. Johnsty Thachara, the Vicar. We have added 200 new parking lots. The renovated Church was consecrated and dedicated by Mar George Cardinal Alencherry, the Major Archbishop of Syro Malabar Church. A beautifully designed Chapel was blessed in April 2015, by Mar Joy Alapatt, the Auxiliary Bishop of the Syro Malabar Catholic Diocese of Chicago.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
-    {% endblock %}
+{% endblock %}
