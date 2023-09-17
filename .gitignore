@@ -105,6 +105,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+vrtenv
+
 
 # Spyder project settings
 .spyderproject
@@ -128,3 +130,6 @@ dmypy.json
 .local 
 local.py
 .idea
+
+# static files
+staticfiles
