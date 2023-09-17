@@ -1,4 +1,5 @@
 {% load static %}
+{% load active_link_tags %}
 
 <!DOCTYPE html>
 
@@ -57,6 +58,20 @@
           </ul>
         </nav>
       </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="{% active_link 'home' %}"><a href="{% url 'home' %}">Home</a></li>
+          <li class="{% active_link 'about' %}"><a href="{% url 'about' %}">About Us</a></li>
+          <li class="{% active_link 'mass-times' %}"><a href="{% url 'mass-times' %}">Mass Timings</a></li>
+          <li class="{% active_link 'announcements' %}"><a href="{% url 'announcements' %}">Announcements</a></li>
+          <li class="{% active_link 'contact' %}"><a href="{% url 'contact' %}">Contact Us</a></li>
+          {% if request.user.is_superuser %}
+          <li><a style='text-decoration: none;' class="greenButton" href="{% url 'alphonsa' %}"><span style='margin-left:1.25px; display:inline-block;'></span> Admin Panel<span style='padding-right:2.25px; display:inline-block;'></span></a></li>
+          {% else %}
+          {% endif %}
+        </ul>
+      </nav>
 
       {% block banner %}
       {% endblock %}
