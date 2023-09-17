@@ -1,6 +1,7 @@
 {% extends "church/base2.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
+
 {% block content %}
 <br>
 <br>
@@ -9,27 +10,26 @@
 <br>
 
 <main id="main">
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Add Banner</h2>
+      </div>
 
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
-        <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <form method="POST">
+          {% csrf_token %}
 
-          <div class="section-title" data-aos="fade-up">
-            <h2>Add Banner</h2>
+          <fieldset class="form-group">
+            {{ form|crispy }}
+          </fieldset>
+
+          <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Create</button>
           </div>
-          <div class="section-title" data-aos="fade-up">
-          <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Create</button>
         </form>
-          </div>
-        </div>
-      </section>
-      <!-- End Features Section -->
-
-    </main>
+      </div>
+    </div>
+  </section>
+</main>
 {% endblock %}

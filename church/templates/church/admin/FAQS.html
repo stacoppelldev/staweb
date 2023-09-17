@@ -1,44 +1,37 @@
 {% extends "church/base2.html" %}
 {% load static %}
+
 {% block content %}
 <br>
 <br>
 <br>
 <br>
 <br>
-<!-- <h1>Events</h1>
-{% for event in events %}
-<a href="/update-event/{{ event.id }}">{{ event.title }}</a>
-{% endfor %} -->
-
 
 <main id="main">
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>FAQs</h2>
+        <a class="add-button" href="{% url 'add-FAQ' %}">
+          <i class="bx bx-plus"></i><span>Add</span>
+        </a>
+      </div>
 
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
-        <div class="container">
-
-          <div class="section-title" data-aos="fade-up">
-            <h2>FAQs</h2>
-            <a class="add-button" href="{% url 'add-FAQ' %}"><span>add</span><i class="bx bx-plus"></i></a>
-          </div>
-          <div class="row">
-            {% for FAQ in FAQS %}
-            <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
-              <ul class="nav nav-tabs flex-column">
-                <li class="nav-item">
-                    <a class="nav-link active show marginTop5" href="/update-FAQ/{{ FAQ.id }}">
-                    <h4>{{ FAQ.question }}</h4>
-                </a>
-                </li>
-              </ul>
-            </div>
-            {% endfor %}
-            </div>
-  
+      <div class="row">
+        {% for FAQ in FAQS %}
+        <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+          <ul class="nav nav-tabs flex-column">
+            <li class="nav-item">
+              <a class="nav-link active show marginTop5" href="/update-FAQ/{{ FAQ.id }}">
+                <h4>{{ FAQ.question }}</h4>
+              </a>
+            </li>
+          </ul>
         </div>
-      </section>
-      <!-- End Features Section -->
-
-    </main>
-    {% endblock %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

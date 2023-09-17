@@ -1,5 +1,6 @@
 {% extends "church/base2.html" %}
 {% load static %}
+
 {% block content %}
 <br>
 <br>
@@ -8,82 +9,74 @@
 <br>
 
 <main id="main">
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Admin Panel</h2>
+      </div>
 
-        <!-- ======= Features Section ======= -->
-        <section id="features" class="features">
-            <div class="container">
-  
-              <div class="section-title" data-aos="fade-up">
-                <h2>Admin Panel</h2>
-              </div>
-      
-              <div class="row">
-                <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
-                  <ul class="nav nav-tabs flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active show" href="{% url 'events' %}">
-                        <h4>Events</h4>
-                    </a>
-                    </li>
-                  </ul>
-                </div>
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+          <ul class="nav nav-tabs flex-column">
+            <li class="nav-item">
+              <a class="nav-link active show" href="{% url 'events' %}">
+                <h4>Events</h4>
+              </a>
+            </li>
+          </ul>
+        </div>
 
-                <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
-                    <ul class="nav nav-tabs flex-column">
-                      <li class="nav-item">
-                          <a class="nav-link active show" href="{% url 'announcements' %}">
-                          <h4>Announcements</h4>
-                      </a>
-                      </li>
-                    </ul>
-                  </div>
+        <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+          <ul class="nav nav-tabs flex-column">
+            <li class="nav-item">
+              <a class="nav-link active show" href="{% url 'announcements' %}">
+                <h4>Announcements</h4>
+              </a>
+            </li>
+          </ul>
+        </div>
 
-                  <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
-                    <ul class="nav nav-tabs flex-column">
-                      <li class="nav-item">
-                          <a class="nav-link active show" href="{% url 'times' %}">
-                          <h4>Times</h4>
-                      </a>
-                      </li>
-                    </ul>
-                  </div>
+        <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+          <ul class="nav nav-tabs flex-column">
+            <li class="nav-item">
+              <a class="nav-link active show" href="{% url 'times' %}">
+                <h4>Timings</h4>
+              </a>
+            </li>
+          </ul>
+        </div>
 
-                  <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
-                    <ul class="nav nav-tabs flex-column">
-                      <li class="nav-item">
-                          <a class="nav-link active show" href="{% url 'banners' %}">
-                          <h4>Banner</h4>
-                      </a>
-                      </li>
-                    </ul>
-                  </div>
+        <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+          <ul class="nav nav-tabs flex-column">
+            <li class="nav-item">
+              <a class="nav-link active show" href="{% url 'banners' %}">
+                <h4>Banners</h4>
+              </a>
+            </li>
+          </ul>
+        </div>
 
-                  <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
-                    <ul class="nav nav-tabs flex-column">
-                      <li class="nav-item">
-                          <a class="nav-link active show" href="{% url 'readings' %}">
-                          <h4>Readings</h4>
-                      </a>
-                      </li>
-                    </ul>
-                  </div>
+        <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+          <ul class="nav nav-tabs flex-column">
+            <li class="nav-item">
+              <a class="nav-link active show" href="{% url 'readings' %}">
+                <h4>Readings</h4>
+              </a>
+            </li>
+          </ul>
+        </div>
 
-                  <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
-                    <ul class="nav nav-tabs flex-column">
-                      <li class="nav-item">
-                          <a class="nav-link active show" href="{% url 'FAQS' %}">
-                          <h4>FAQ</h4>
-                      </a>
-                      </li>
-                    </ul>
-                  </div>
-
-              </div>
-      
-            </div>
-          </section>
-          <!-- End Features Section -->
-
-        </main>
-
+        <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+          <ul class="nav nav-tabs flex-column">
+            <li class="nav-item">
+              <a class="nav-link active show" href="{% url 'FAQS' %}">
+                <h4>FAQ</h4>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 {% endblock %}
