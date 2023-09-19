@@ -185,7 +185,7 @@ class addBanner(CreateView):
     template_name = 'church/admin/addBanner.html'
     model = banner
     form_class = addBannerForm
-    success_url = '/'
+    success_url = 'banners'
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
