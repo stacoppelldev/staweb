@@ -196,7 +196,7 @@ class addAnnouncement(CreateView):
     template_name = 'church/admin/addAnnouncement.html'
     model = announcement
     form_class = addAnnouncementForm
-    success_url = '/'
+    success_url = 'announcements'
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
