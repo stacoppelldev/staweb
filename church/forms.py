@@ -103,7 +103,7 @@ class updateTimeForm(forms.ModelForm):
         fields = ['title', 'time']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'time': forms.TimeInput(attrs={'class': 'form-control'}),
+            'time': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'}),
         }
 
 class updateReadingForm(forms.ModelForm):

@@ -220,7 +220,7 @@ class updateTime(UpdateView):
     template_name = 'church/admin/updateTime.html'
     model = time
     form_class = updateTimeForm
-    success_url = '/'
+    success_url = '/times'
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
