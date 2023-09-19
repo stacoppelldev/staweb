@@ -173,7 +173,8 @@ class addEvent(CreateView):
     template_name = 'church/admin/addEvent.html'
     model = event
     form_class = addEventForm
-    success_url = '/'
+    success_url = 'events'
+
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user

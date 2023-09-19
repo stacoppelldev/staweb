@@ -2,23 +2,23 @@
 // DATETIME PICKER
 
 $(document).ready(function(){
-
+    
     $(".dateinput").datetimepicker({timepicker: false, format:'m/d/Y', theme:'dark', changeYear: true, changeMonth: true, minDate: 0});
   
     $("#id_start_time").datetimepicker({
-        format:'h:i A',
+        format:'H:i',
         datepicker:false,
         theme:'dark',
         step: 30,
-        formatTime: 'h:ia',
+        formatTime: 'h:i A',
         validateOnBlur: false
     });
     $("#id_end_time").datetimepicker({
-        format:'h:i A',
+        format:'H:i',
         datepicker:false,
         theme:'dark',
         step: 30,
-        formatTime: 'h:ia',
+        formatTime: 'h:i A',
         validateOnBlur: false
     });
   
