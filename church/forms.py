@@ -61,6 +61,7 @@ class addFAQ(forms.ModelForm):
             'answer': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
+
 class updateEventForm(forms.ModelForm):
     class Meta:
         model = event
@@ -129,6 +130,7 @@ class updateFAQForm(forms.ModelForm):
             'question': forms.TextInput(attrs={'class': 'form-control'}),
             'answer': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
 
 class contactForm(forms.Form):
     name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
