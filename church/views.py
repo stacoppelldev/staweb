@@ -17,6 +17,7 @@ from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth import logout as auth_logout
 
 @user_passes_test(lambda u: u.is_superuser)
 def alphonsa(request):
@@ -347,4 +348,9 @@ def send_email(request):
     e = request.POST['email']
     # send_mail('Thank you for subscribing', 'Subscribed Successfully', 'devalphonsa@gmail.com', [e])
     messages.success(request, 'Successfully subscribed!')
+    return HttpResponseRedirect('/')
+
+# Admin Logout
+def logout(request):
+    auth_logout(request)
     return HttpResponseRedirect('/')

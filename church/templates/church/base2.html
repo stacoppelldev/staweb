@@ -49,14 +49,14 @@
 
             {% if request.user.is_superuser %}
             <li>
-              <div class="dropdown">
+              <div class="dropdown admin_dropdown">
                 <button type="button" class="btn btn-secondary btn-sm dropdown-toggle greenButton" id="dropdownMenuButton"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Admin
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="{% url 'alphonsa' %}">Manage</a>
-                  <a class="dropdown-item" href="logout">Logout</a>
+                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                 </div>
               </div>
             </li>
