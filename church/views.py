@@ -134,7 +134,7 @@ class FAQ(TemplateView):
 
 class eventDetails(TemplateView):
     template_name = 'church/eventDetails.html'
-    model = event 
+    model = event
 
     def get_context_data(self, **kwargs):
         context = super(eventDetails, self).get_context_data(**kwargs)
@@ -144,7 +144,7 @@ class eventDetails(TemplateView):
 
 class announcementDetails(TemplateView):
     template_name = 'church/announcementDetails.html'
-    model = announcement 
+    model = announcement
 
     def get_context_data(self, **kwargs):
         context = super(announcementDetails, self).get_context_data(**kwargs)
@@ -173,7 +173,8 @@ class addEvent(CreateView):
     template_name = 'church/admin/addEvent.html'
     model = event
     form_class = addEventForm
-    success_url = '/'
+    success_url = 'events'
+
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
@@ -184,7 +185,7 @@ class addBanner(CreateView):
     template_name = 'church/admin/addBanner.html'
     model = banner
     form_class = addBannerForm
-    success_url = '/'
+    success_url = 'banners'
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
@@ -195,7 +196,7 @@ class addAnnouncement(CreateView):
     template_name = 'church/admin/addAnnouncement.html'
     model = announcement
     form_class = addAnnouncementForm
-    success_url = '/'
+    success_url = 'announcements'
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
@@ -206,7 +207,7 @@ class addFAQ(CreateView):
     template_name = 'church/admin/addFAQ.html'
     model = faq
     form_class = addFAQForm
-    success_url = '/'
+    success_url = 'FAQS'
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
@@ -219,7 +220,7 @@ class updateTime(UpdateView):
     template_name = 'church/admin/updateTime.html'
     model = time
     form_class = updateTimeForm
-    success_url = '/'
+    success_url = '/times'
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
@@ -230,7 +231,7 @@ class updateBanner(UpdateView):
     template_name = 'church/admin/updateBanner.html'
     model = banner
     form_class = updateBannerForm
-    success_url = '/'
+    success_url = '/banners'
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
@@ -252,7 +253,7 @@ class updateEvent(UpdateView):
     template_name = 'church/admin/updateEvent.html'
     model = event
     form_class = updateEventForm
-    success_url = '/'
+    success_url = '/events'
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
@@ -263,7 +264,7 @@ class updateAnnouncement(UpdateView):
     template_name = 'church/admin/updateAnnouncement.html'
     model = announcement
     form_class = updateAnnouncementForm
-    success_url = '/'
+    success_url = '/announcements'
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
@@ -278,7 +279,7 @@ class updateFAQ(UpdateView):
     template_name = 'church/admin/updateFAQ.html'
     model = faq
     form_class = updateFAQForm
-    success_url = '/'
+    success_url = '/FAQS'
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
