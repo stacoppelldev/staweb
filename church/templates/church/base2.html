@@ -49,10 +49,16 @@
 
             {% if request.user.is_superuser %}
             <li>
-              <a style='text-decoration: none;' class="greenButton" href="{% url 'alphonsa' %}">
-                <span style='margin-left:1.25px; display:inline-block;'></span> Admin Panel
-                <span style='padding-right:2.25px; display:inline-block;'></span>
-              </a>
+              <div class="dropdown admin_dropdown">
+                <button type="button" class="btn btn-secondary btn-sm dropdown-toggle greenButton" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Admin
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="{% url 'alphonsa' %}">Manage</a>
+                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                </div>
+              </div>
             </li>
             {% endif %}
           </ul>
