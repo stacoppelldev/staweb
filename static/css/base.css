@@ -6,3 +6,23 @@
 .textAlignCenter {
     text-align: center;
 }
+
+.about .icon-box i {
+    font-size: 30px;
+}
+
+.custom-card {
+    padding: 20px;
+    transition: 0.3s;
+    color: #495057;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.12);
+}
+.custom-card p.heading {
+    font-size: 16px;
+}
+.custom-card p {
+    font-size: 14px;
+    margin-bottom: 0;
+}

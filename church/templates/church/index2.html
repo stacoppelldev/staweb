@@ -29,11 +29,13 @@
 
       <div class="row">
         {% for announcements in announcement %}
-        <div class="col-12" data-aos="fade-in">
-          <p>{{ announcements.detail|safe }}</p>
-          {% if announcements.announcement_files %}
-          <a href="{{ announcements.announcement_files.url }}" download="">Announcement File</a>
-          {% endif %}
+        <div class="col-lg-6 mb-3" data-aos="fade-in">
+          <div class="custom-card h-100">
+            <p>{{ announcements.detail|safe }}</p>
+            {% if announcements.announcement_files %}
+            <a href="{{ announcements.announcement_files.url }}" download="">Announcement File</a>
+            {% endif %}
+          </div>
         </div>
         {% endfor %}
       </div>
@@ -72,72 +74,71 @@
   <section id="services" class="services">
     <div class="container">
       <div class="section-title" data-aos="fade-up">
-        <div class="inline">
-          <a href="{% url 'mass-times' %}">
-            <h2>Mass Timings</h2>
-          </a>
-        </div>
-
-        <p>Be sure to check our calendar for special event times</p>
+        <h2>Mass Timings</h2>
+        <p class="mb-2">Be sure to check our calendar for special event times</p>
       </div>
 
-      <div class="mass-box" data-aos="fade-up" data-aos-delay="100">
-        <div class="mass-center" data-aos="fade-up">
-          <h4 class="title">
-            <a href="">Sunday Holy Qurbana</a>
-          </h4>
-          <div class="mass-align">
-            <p class="description">{{ sundayMassMalayalam1.time }} Solemn Holy Qurbana (Malayalam)</p>
-            <p class="description">{{ sundayMassMalayalam.time }} Solemn Holy Qurbana (Malayalam)</p>
-            <p class="description">{{ sundayMassEnglish.time }} Solemn Holy Qurbana (English)</p>
+      <div class="row">
+        <div class="col-lg-6 mb-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="custom-card h-100">
+            <div class="mass-center">
+              <h4 class="title">
+                <a href="">Sunday Holy Qurbana</a>
+              </h4>
+              <div class="mass-align">
+                <p class="description">{{ sundayMassMalayalam1.time }} Solemn Holy Qurbana (Malayalam)</p>
+                <p class="description">{{ sundayMassMalayalam.time }} Solemn Holy Qurbana (Malayalam)</p>
+                <p class="description">{{ sundayMassEnglish.time }} Solemn Holy Qurbana (English)</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <br>
-
-      <div class="mass-box" data-aos="fade-up" data-aos-delay="100">
-        <div class="mass-center">
-          <h4 class="title">
-            <a href="">Weekday Holy Qurbana</a>
-          </h4>
-          <div class="mass-align">
-            <p class="description"><Strong>Monday - Tuesday - Wednesday - Saturday:</Strong></p>
-            <p class="description">{{ weekdayMassMTWS.time }} Holy Qurbana (Malayalam)</p>
-            <p class="description"><Strong>Thursday - Friday:</Strong></p>
-            <p class="description">{{ weekdayMassTTH.time }} Holy Qurbana (Malayalam). 
-              <span class="novena">Followed by Novena</span>
-            </p>
+        <div class="col-lg-6 mb-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="custom-card h-100">
+            <div class="mass-center">
+              <h4 class="title">
+                <a href="">Weekday Holy Qurbana</a>
+              </h4>
+              <div class="mass-align">
+                <p class="description"><Strong>Monday - Tuesday - Wednesday - Saturday:</Strong></p>
+                <p class="description">{{ weekdayMassMTWS.time }} Holy Qurbana (Malayalam)</p>
+                <p class="description"><Strong>Thursday - Friday:</Strong></p>
+                <p class="description">{{ weekdayMassTTH.time }} Holy Qurbana (Malayalam). 
+                  <span class="novena">Followed by Novena</span>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <br>
-
-      <div class="mass-box" data-aos="fade-up" data-aos-delay="200">
-        <div class="mass-center">
-          <h4 class="title">
-            <a href="">Confession</a>
-          </h4>
-          <div class="mass-align">
-            <p class="description"><Strong>Thursday - Friday:</Strong></p>
-            <p class="description">{{ confession.time }}</p>
+        <div class="col-lg-6 mb-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="custom-card h-100">
+            <div class="mass-center">
+              <h4 class="title">
+                <a href="">Confession</a>
+              </h4>
+              <div class="mass-align">
+                <p class="description"><Strong>Thursday - Friday:</Strong></p>
+                <p class="description">{{ confession.time }}</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <br>
-
-      <div class="mass-box" data-aos="fade-up" data-aos-delay="300">
-        <div class="mass-center">
-          <h4 class="title">
-            <a href="">Adoration</a>
-          </h4>
-          <div class="mass-align">
-            <p class="description"><Strong>Monday - Tuesday - Wednesday - Saturday:</Strong></p>
-            <p class="description">{{ adorationMTWS.time }}</p>
-            <p class="description"><Strong>Thursday - Friday:</Strong></p>
-            <p class="description">{{ adorationTHF.time }}</p>
+        <div class="col-lg-6 mb-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="custom-card h-100">
+            <div class="mass-center">
+              <h4 class="title">
+                <a href="">Adoration</a>
+              </h4>
+              <div class="mass-align">
+                <p class="description"><Strong>Monday - Tuesday - Wednesday - Saturday:</Strong></p>
+                <p class="description">{{ adorationMTWS.time }}</p>
+                <p class="description"><Strong>Thursday - Friday:</Strong></p>
+                <p class="description">{{ adorationTHF.time }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
