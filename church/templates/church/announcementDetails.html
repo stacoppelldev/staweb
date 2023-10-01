@@ -4,6 +4,7 @@
 {% block content %}
 <br>
 <br>
+<br>
 
 <main id="main">
   <section id="about" class="about">
@@ -43,7 +44,6 @@
     <a href="{% url 'update-announcement' pk=announcement.id %}" class="greenButton">Edit</a>
   </div>
   {% endfor %}
-  {% else %}
   {% endif %}
 </main>
 {% endblock %}

@@ -134,7 +134,7 @@ class FAQ(TemplateView):
 
 class eventDetails(TemplateView):
     template_name = 'church/eventDetails.html'
-    model = event 
+    model = event
 
     def get_context_data(self, **kwargs):
         context = super(eventDetails, self).get_context_data(**kwargs)
@@ -144,7 +144,7 @@ class eventDetails(TemplateView):
 
 class announcementDetails(TemplateView):
     template_name = 'church/announcementDetails.html'
-    model = announcement 
+    model = announcement
 
     def get_context_data(self, **kwargs):
         context = super(announcementDetails, self).get_context_data(**kwargs)
