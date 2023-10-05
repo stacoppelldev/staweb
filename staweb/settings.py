@@ -10,10 +10,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+from dotenv import load_dotenv
 import os
 from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
+
+# Import the Cloudinary libraries
+# ==============================
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 load_dotenv()
 
@@ -51,7 +58,9 @@ INSTALLED_APPS = [
     'crispy_forms',
     'ckeditor',
     'captcha',
-    'active_link'
+    'crispy_bootstrap4',
+    'active_link',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +144,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'media'),
 ]
 
+# CRISPY_TEMPLATE_PACK
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 # Active Link
 # https://django-active-link.readthedocs.io/en/latest/
 ACTIVE_LINK_STRICT = True
@@ -155,3 +167,7 @@ EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+
+# Set configuration parameter: return "https" URLs by setting secure=True  
+# ==============================
+config = cloudinary.config(secure=True)
