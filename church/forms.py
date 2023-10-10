@@ -1,4 +1,3 @@
-from django.forms import ModelForm
 from .models import event, time, reading, announcement, faq, banner
 from django import forms
 from django.forms import ModelForm
@@ -36,12 +35,7 @@ class addFAQForm(forms.ModelForm):
 class addAnnouncementForm(forms.ModelForm):
     class Meta:
         model = announcement
-        fields = ['message', 'detail', 'order']
-        widgets = {
-            'message': forms.TextInput(attrs={'class': 'form-control'}),
-            'detail': forms.TextInput(attrs={'class': 'form-control'}),
-            'order': forms.NumberInput(attrs={'class': 'form-control'}),
-        }
+        fields = ['message', 'detail', 'announcement_files', 'order']
 
 class addBannerForm(forms.ModelForm):
     class Meta:
@@ -91,12 +85,7 @@ class updateBannerForm(forms.ModelForm):
 class updateAnnouncementForm(forms.ModelForm):
     class Meta:
         model = announcement
-        fields = ['message', 'detail', 'order']
-        widgets = {
-            'message': forms.TextInput(attrs={'class': 'form-control'}),
-            'detail': forms.TextInput(attrs={'class': 'form-control'}),
-            'order': forms.NumberInput(attrs={'class': 'form-control'}),
-        }
+        fields = ['message', 'detail', 'announcement_files', 'order']
 
 class updateTimeForm(forms.ModelForm):
     class Meta:

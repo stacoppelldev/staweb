@@ -194,10 +194,10 @@ class addBanner(CreateView):
         return super().form_valid(form)
 
 class addAnnouncement(CreateView):
-    template_name = 'church/admin/addAnnouncement.html'
     model = announcement
     form_class = addAnnouncementForm
     success_url = 'announcements'
+    template_name = 'church/admin/addAnnouncement.html'
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
@@ -262,10 +262,10 @@ class updateEvent(UpdateView):
         return super().form_valid(form)
 
 class updateAnnouncement(UpdateView):
-    template_name = 'church/admin/updateAnnouncement.html'
     model = announcement
     form_class = updateAnnouncementForm
     success_url = '/announcements'
+    template_name = 'church/admin/updateAnnouncement.html'
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
@@ -327,9 +327,9 @@ class eventList(ListView):
 
 class announcementList(ListView):
     model = announcement
+    paginate_by = 40
     template_name = 'church/admin/announcements.html'
     context_object_name = 'announcement'
-    paginate_by = 40
 
     def get_queryset(self):
         return announcement.objects.all()

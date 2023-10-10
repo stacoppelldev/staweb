@@ -33,7 +33,7 @@
           <div class="custom-card h-100">
             <p>{{ announcements.detail|safe }}</p>
             {% if announcements.announcement_files %}
-            <a href="{{ announcements.announcement_files.url }}" download="">Announcement File</a>
+            <a href="{{ announcements.announcement_files.url }}" target="_blank">Announcement File</a>
             {% endif %}
           </div>
         </div>
@@ -65,7 +65,7 @@
       </div>
 
       <div class="text-center">
-        <a href="{% url 'calendar' %}" class="btn btn-outline-info" type="submit">View Full Calendar</a>
+        <a href="{% url 'calendar' %}" class="btn btn-outline-info">View Full Calendar</a>
       </div>
     </div>
   </section>
@@ -82,9 +82,7 @@
         <div class="col-lg-6 mb-3" data-aos="fade-up" data-aos-delay="100">
           <div class="custom-card h-100">
             <div class="mass-center">
-              <h4 class="title">
-                <a href="">Sunday Holy Qurbana</a>
-              </h4>
+              <h4 class="title">Sunday Holy Qurbana</h4>
               <div class="mass-align">
                 <p class="description">{{ sundayMassMalayalam1.time }} Solemn Holy Qurbana (Malayalam)</p>
                 <p class="description">{{ sundayMassMalayalam.time }} Solemn Holy Qurbana (Malayalam)</p>
@@ -97,13 +95,11 @@
         <div class="col-lg-6 mb-3" data-aos="fade-up" data-aos-delay="100">
           <div class="custom-card h-100">
             <div class="mass-center">
-              <h4 class="title">
-                <a href="">Weekday Holy Qurbana</a>
-              </h4>
+              <h4 class="title">Weekday Holy Qurbana</h4>
               <div class="mass-align">
-                <p class="description"><Strong>Monday - Tuesday - Wednesday - Saturday:</Strong></p>
+                <p class="description"><strong>Monday - Tuesday - Wednesday - Saturday:</strong></p>
                 <p class="description">{{ weekdayMassMTWS.time }} Holy Qurbana (Malayalam)</p>
-                <p class="description"><Strong>Thursday - Friday:</Strong></p>
+                <p class="description"><strong>Thursday - Friday:</strong></p>
                 <p class="description">{{ weekdayMassTTH.time }} Holy Qurbana (Malayalam). 
                   <span class="novena">Followed by Novena</span>
                 </p>
@@ -115,11 +111,9 @@
         <div class="col-lg-6 mb-3" data-aos="fade-up" data-aos-delay="100">
           <div class="custom-card h-100">
             <div class="mass-center">
-              <h4 class="title">
-                <a href="">Confession</a>
-              </h4>
+              <h4 class="title">Confession</h4>
               <div class="mass-align">
-                <p class="description"><Strong>Thursday - Friday:</Strong></p>
+                <p class="description"><strong>Thursday - Friday:</strong></p>
                 <p class="description">{{ confession.time }}</p>
               </div>
             </div>
@@ -129,13 +123,11 @@
         <div class="col-lg-6 mb-3" data-aos="fade-up" data-aos-delay="100">
           <div class="custom-card h-100">
             <div class="mass-center">
-              <h4 class="title">
-                <a href="">Adoration</a>
-              </h4>
+              <h4 class="title">Adoration</h4>
               <div class="mass-align">
-                <p class="description"><Strong>Monday - Tuesday - Wednesday - Saturday:</Strong></p>
+                <p class="description"><strong>Monday - Tuesday - Wednesday - Saturday:</strong></p>
                 <p class="description">{{ adorationMTWS.time }}</p>
-                <p class="description"><Strong>Thursday - Friday:</Strong></p>
+                <p class="description"><strong>Thursday - Friday:</strong></p>
                 <p class="description">{{ adorationTHF.time }}</p>
               </div>
             </div>

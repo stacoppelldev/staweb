@@ -11,7 +11,7 @@
       </div>
 
       <div class="section-title" data-aos="fade-up">
-        <form method="POST">
+        <form method="post" enctype="multipart/form-data">
           {% csrf_token %}
 
           <fieldset class="form-group">
@@ -20,7 +20,7 @@
           </fieldset>
 
           <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Post</button>
+            <button type="submit" class="btn btn-outline-info">Post</button>
           </div>
         </form>
       </div>
