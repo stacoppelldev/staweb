@@ -93,8 +93,8 @@ class calendar(TemplateView):
     #     print(context)
     #     return context
 
-def meetTheVicars(request):
-    return render(request, 'church/meetTheVicars.html', {'title': 'About'})
+def meetOurVicars(request):
+    return render(request, 'church/meetOurVicars.html', {'title': 'Meet our Vicars'})
 
 # def contact(request):
 #     return render(request, 'church/contactUs.html', {'title': 'About'})
