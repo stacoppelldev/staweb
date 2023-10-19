@@ -1,0 +1,91 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<style type="text/css">
+  .book-a-table .php-email-form label {
+    font-size: 0.9rem;
+  }
+  .book-a-table .php-email-form span.asteriskField {
+    color: var(--color-primary);
+  }
+  .book-a-table .php-email-form input[type=submit] {
+    background: var(--color-primary);
+    border: 0;
+    padding: 14px 60px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+  }
+  .book-a-table .php-email-form input[type=submit]:hover {
+    background: #ec2727;
+  }
+</style>
+
+<section id="book-a-table" class="book-a-table">
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2>Reserve Auditorium</h2>
+      <p>Plan <span>Your Next Event</span> With Us</p>
+    </div>
+
+    <div class="row g-0">
+      <div class="col-lg-4 reservation-img" data-aos="zoom-out" data-aos-delay="200"
+        style="background-image: url('{% static 'assets/img/auditorium-03.jpeg' %}')"></div>
+
+      <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
+        <!--
+        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form"
+          data-aos="fade-up" data-aos-delay="100">
+          <div class="row gy-4">
+            <div class="col-lg-4 col-md-6">
+              <input type="text" id="name" name="name" class="form-control" placeholder="Your Name"
+                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input type="email" id="email" name="email" class="form-control" placeholder="Your Email"
+                data-rule="email" data-msg="Please enter a valid email">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input type="text" id="phone" name="phone" class="form-control" placeholder="Your Phone"
+                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input type="text" id="date" name="date" class="form-control" placeholder="Date"
+                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input type="text" id="time" name="time" class="form-control" placeholder="Time"
+                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input type="number" id="people" name="people" class="form-control" placeholder="# of people"
+                data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+              <div class="validate"></div>
+            </div>
+          </div>
+
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+            <div class="validate"></div>
+          </div>
+
+          <div class="mb-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your reservation request was sent. We will call back or send an 
+              Email to confirm your reservation. Thank you!</div>
+          </div>
+        </form> -->
+
+        <form method="post" role="form" class="php-email-form">
+          {% crispy form %}
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

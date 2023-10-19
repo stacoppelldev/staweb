@@ -1,0 +1,101 @@
+{% load static %}
+
+<style type="text/css">
+  .chefs .chef-member {
+    width: 100%;
+    text-align: left;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  .chefs .chef-member .member-img {
+    max-height: 305px;
+  }
+  .chefs .chef-member .member-img:after {
+    background: none;
+  }
+  .chefs .chef-member .member-info {
+    padding: 25px 15px;
+    text-align: center;
+  }
+  .chefs .chef-member .member-info h4 {
+    font-size: 18px;
+  }
+  .chefs .chef-member .member-info span {
+    font-size: 16px;
+  }
+</style>
+
+<section id="chefs" class="chefs section-bg">
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2>Team</h2>
+      <p>Meet <span>Our Administration</span></p>
+    </div>
+
+    <div class="row gy-4">
+      <div class="col-6 col-md-6 col-lg-3">
+        <div class="chef-member">
+          <div class="member-img">
+            <img src="{% static 'assets/img/vicars/fr.-mathews-munjanath.webp' %}" class="img-fluid"
+              alt="Fr. Mathews Munjanath">
+          </div>
+          <div class="member-info">
+            <h4>Fr. Mathews Munjanath</h4>
+            <span>Pastor/Vicar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-6 col-lg-3">
+        <div class="chef-member">
+          <div class="member-img">
+            <img src="{% static 'assets/img/administration/peter-thomas.webp' %}" class="img-fluid"
+              alt="Peter Thomas">
+          </div>
+          <div class="member-info">
+            <h4>Peter Thomas</h4>
+            <span>Principal Trustee</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-6 col-lg-3">
+        <div class="chef-member">
+          <div class="member-img">
+            <img src="{% static 'assets/img/administration/abraham-p-mathew.webp' %}" class="img-fluid"
+              alt="Abraham P Mathew (Joy)">
+          </div>
+          <div class="member-info">
+            <h4>Abraham P Mathew</h4>
+            <span>Trustee</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-6 col-lg-3">
+        <div class="chef-member">
+          <div class="member-img">
+            <img src="{% static 'assets/img/administration/sabu-sebastian.webp' %}" class="img-fluid"
+              alt="Sabu Sebastian">
+          </div>
+          <div class="member-info">
+            <h4>Sabu Sebastian</h4>
+            <span>Trustee</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-6 col-lg-3">
+        <div class="chef-member">
+          <div class="member-img">
+            <img src="{% static 'assets/img/administration/george-thomas.webp' %}" class="img-fluid"
+              alt="George Thomas">
+          </div>
+          <div class="member-info">
+            <h4>George Thomas</h4>
+            <span>Secretary</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
