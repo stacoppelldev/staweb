@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views.generic.edit import FormMixin
 from django.views.generic import CreateView, TemplateView, UpdateView, ListView, FormView
 from .models import event, time, reading, announcement, faq, banner, page
-from .forms import (contactForm, addFAQForm, addBannerForm, addEventForm,
+from .forms import (reserveAuditoriumForm, contactForm, addFAQForm, addBannerForm, addEventForm,
  addAnnouncementForm, updateBannerForm, updateFAQForm, updateAnnouncementForm,
   updateEventForm, updateTimeForm, updateReadingForm)
 from django.contrib.auth.decorators import user_passes_test
@@ -23,8 +23,11 @@ from django.contrib.auth import logout as auth_logout
 def alphonsa(request):
     return render(request, 'church/admin/alphonsa.html', {'title': 'Home'})
 
-class homeView(TemplateView):
-    template_name = "church/index2.html"
+class homeView(FormView):
+    form_class = reserveAuditoriumForm
+    success_url = '/'
+    template_name = "church/yummy/index.html"
+    success_message = "Message successfully sent"
     
     def get_context_data(self, **kwargs):
         context = super(homeView, self).get_context_data(**kwargs)
@@ -48,34 +51,6 @@ class homeView(TemplateView):
         context['banners'] = banner.objects.all()
         return context
 
-def about(request):
-    return render(request, 'church/about.html', {'title': 'About'})
-
-def faithFormation(request):
-    return render(request, 'church/faithFormation.html', {'title': 'About'})
-
-def sacraments(request):
-    return render(request, 'church/sacraments.html', {'title': 'About'})
-
-def give(request):
-    return render(request, 'church/give.html', {'title': 'About'})
-
-def getInvolved(request):
-    return render(request, 'church/getInvolved.html', {'title': 'About'})
-
-class pageView(TemplateView):
-    template_name = "church/template.html"
-
-    def get_context_data(self, **kwargs):
-        context = super(pageView, self).get_context_data(**kwargs)
-        pageName = self.kwargs.get("name")
-        context['pageContent'] = page.objects.get(title=pageName)
-        print(page.objects.filter(title=pageName))
-        return context
-
-class templateOptions(TemplateView):
-    template_name = "church/templateOptions.html"
-
 class calendar(TemplateView):
     template_name = "church/calendar.html"
 
@@ -93,45 +68,7 @@ class calendar(TemplateView):
     #     print(context)
     #     return context
 
-def meetTheVicars(request):
-    return render(request, 'church/meetTheVicars.html', {'title': 'About'})
-
-# def contact(request):
-#     return render(request, 'church/contactUs.html', {'title': 'About'})
-
-# def contactUs(request):
-#     return render(request, 'church/contactUs.html', {'title': 'About'})
-
-class contact(SuccessMessageMixin, FormView):
-    template_name = 'church/contactUs.html'
-    form_class = contactForm
-    success_url = '/'
-    success_message = "Message successfully sent"
-
-def services(request):
-    return render(request, 'church/services.html')
-
-class massTimes(TemplateView):
-    template_name = "church/massTimes.html"
-    model = time
-
-    def get_context_data(self, **kwargs):
-        context = super(massTimes, self).get_context_data(**kwargs)
-        context['sundayMassMalayalam1'] = time.objects.get(title="Holy Qurbana Malayalam1")
-        context['sundayMassMalayalam'] = time.objects.get(title="Holy Qurbana Malayalam")
-        context['sundayMassEnglish'] = time.objects.get(title="Holy Qurbana English")
-        context['weekdayMassMTWS'] = time.objects.get(title="Weekday Mass MTWS")
-        context['weekdayMassTTH'] = time.objects.get(title="Weekday Mass TTH")
-        return context
-
-class FAQ(TemplateView):
-    template_name = 'church/FAQ.html'
-    model = faq
-
-    def get_context_data(self, **kwargs):
-        context = super(FAQ, self).get_context_data(**kwargs)
-        context['faqs'] = faq.objects.all()
-        return context
+# class contact(SuccessMessageMixin, FormView):
 
 class eventDetails(TemplateView):
     template_name = 'church/eventDetails.html'
@@ -194,10 +131,10 @@ class addBanner(CreateView):
         return super().form_valid(form)
 
 class addAnnouncement(CreateView):
-    template_name = 'church/admin/addAnnouncement.html'
     model = announcement
     form_class = addAnnouncementForm
     success_url = 'announcements'
+    template_name = 'church/admin/addAnnouncement.html'
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
@@ -262,10 +199,10 @@ class updateEvent(UpdateView):
         return super().form_valid(form)
 
 class updateAnnouncement(UpdateView):
-    template_name = 'church/admin/updateAnnouncement.html'
     model = announcement
     form_class = updateAnnouncementForm
     success_url = '/announcements'
+    template_name = 'church/admin/updateAnnouncement.html'
 
     def form_valid(self, form):
         form.instance.organizer = self.request.user
@@ -327,9 +264,9 @@ class eventList(ListView):
 
 class announcementList(ListView):
     model = announcement
+    paginate_by = 40
     template_name = 'church/admin/announcements.html'
     context_object_name = 'announcement'
-    paginate_by = 40
 
     def get_queryset(self):
         return announcement.objects.all()

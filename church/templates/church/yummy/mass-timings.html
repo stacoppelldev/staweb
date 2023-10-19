@@ -1,0 +1,66 @@
+<style type="text/css">
+  .features .icon-box {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  .features .icon-box h4 {
+    margin-bottom: 25px;
+    color: #d9232d;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .features .icon-box p {
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+  }
+</style>
+
+<section id="features" class="features section-bg">
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2>Timings</h2>
+      <p><span>Mass Timings</span></p>
+    </div>
+
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <div class="icon-box h-100">
+          <h4>Sunday Holy Qurbana</h4>
+          <p>{{ sundayMassMalayalam1.time }} Solemn Holy Qurbana (Malayalam)</p>
+          <p>{{ sundayMassMalayalam.time }} Solemn Holy Qurbana (Malayalam)</p>
+          <p>{{ sundayMassEnglish.time }} Solemn Holy Qurbana (English)</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="icon-box h-100">
+          <h4>Weekday Holy Qurbana</h4>
+          <p><strong>Monday - Tuesday - Wednesday - Saturday:</strong></p>
+          <p>{{ weekdayMassMTWS.time }} Holy Qurbana (Malayalam)</p>
+          <p><strong>Thursday - Friday:</strong></p>
+          <p>{{ weekdayMassTTH.time }} Holy Qurbana (Malayalam). 
+            <span class="fst-italic">Followed by Novena</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="icon-box h-100">
+          <h4>Confession</h4>
+          <p>{{ confession.time }} Thursday - Friday</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="icon-box h-100">
+          <h4>Adoration</h4>
+          <p class="description"><strong>Monday - Tuesday - Wednesday - Saturday:</strong></p>
+          <p class="description">{{ adorationMTWS.time }}</p>
+          <p class="description"><strong>Thursday - Friday:</strong></p>
+          <p class="description">{{ adorationTHF.time }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

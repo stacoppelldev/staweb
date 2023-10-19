@@ -1,13 +1,16 @@
 from django.db import models
+from django.db.models.signals import pre_delete, pre_save
+from django.dispatch import receiver
 from django.urls import reverse
 from ckeditor.fields import RichTextField
+import cloudinary
+from cloudinary.models import CloudinaryField
 
 EVENT_STATUS = (
     ('Active', 'Active'),
     ('Archived', 'Archived')
 )
 
-# Create your models here.
 class event(models.Model):
     title = models.CharField(max_length=100)
     start_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
@@ -48,11 +51,21 @@ class reading(models.Model):
 class announcement(models.Model):
     message = models.CharField(null=True, max_length=100)
     detail = RichTextField(null=True, blank=True, max_length=1000)
-    announcement_files = models.FileField(upload_to='files', blank=True, null=True)
+    announcement_files = CloudinaryField(null=True, blank=True, folder='announcements')
     order = models.IntegerField()
 
     def __str__(self):
-        return '%s %s' % (self.message, self.order)
+        return '%s: %s' % (self.order, self.message)
+
+@receiver(pre_delete, sender=announcement)
+def announcement_delete(sender, instance, **kwargs):
+    if not instance.announcement_files == None:
+        cloudinary.uploader.destroy(instance.announcement_files.public_id)
+
+# @receiver(pre_save, sender=announcement)
+# def announcement_update(sender, instance, **kwargs):
+#     if not kwargs.get('created') and not instance.announcement_files == None:
+#         cloudinary.uploader.destroy(instance.announcement_files.public_id)
 
 class faq(models.Model):
     question = models.CharField(max_length=200)
