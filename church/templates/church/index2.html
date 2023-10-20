@@ -13,29 +13,6 @@
 
 {% block content %}
 <main id="main">
-  {% if announcement %}
-  <section id="features" class="features">
-    <div class="container">
-      <div class="section-title" data-aos="fade-up">
-        <h2>Announcements</h2>
-      </div>
-
-      <div class="row">
-        {% for announcements in announcement %}
-        <div class="col-lg-6 mb-3" data-aos="fade-in">
-          <div class="custom-card h-100">
-            <p>{{ announcements.detail|safe }}</p>
-            {% if announcements.announcement_files %}
-            <a href="{{ announcements.announcement_files.url }}" target="_blank">Announcement File</a>
-            {% endif %}
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-  {% endif %}
-
   {% if events %}
   <section id="steps" class="steps section-bg">
     <div class="container">
@@ -63,14 +40,5 @@
     </div>
   </section>
   {% endif %}
-
-  <section id="services" class="services">
-    <div class="container">
-      <div class="section-title" data-aos="fade-up">
-        <h2>Mass Timings</h2>
-        <p class="mb-2">Be sure to check our calendar for special event times</p>
-      </div>
-    </div>
-  </section>
 </main>
 {% endblock %}

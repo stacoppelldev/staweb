@@ -1,0 +1,47 @@
+<style type="text/css">
+  .announcements .icon-box {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  .announcements .icon-box h4 {
+    margin-bottom: 25px;
+    color: #d9232d;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .announcements .icon-box p {
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+  }
+</style>
+
+<section id="announcements" class="announcements section-bg">
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2>Announcements</h2>
+      <p><span>Announcements</span></p>
+    </div>
+
+    <div class="row gy-4">
+      {% for announcement in announcements %}
+      <div class="col-lg-4">
+        <div class="icon-box h-100">
+          <i class="bx bx-message-square-detail"></i>
+          <h4>{{ announcement.message }}</h4>
+          <p>{{ announcement.detail|safe }}</p>
+
+          {% if announcement.announcement_files %}
+          <div>
+            <i class="bx bx-cloud-download"></i>
+            <a href="{{ announcement.announcement_files.url }}" download>
+              <p>{{ announcement.announcement_files }}</p>
+            </a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

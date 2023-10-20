@@ -46,7 +46,7 @@ class homeView(FormView):
             context['reading'] = reading.objects.get(date=today)
         except:
             pass
-        context['announcement'] = announcement.objects.all().order_by('order')
+        context['announcements'] = announcement.objects.all().order_by('order')
         context['faqs'] = faq.objects.all()
         context['banners'] = banner.objects.all()
         return context
@@ -88,16 +88,6 @@ class announcementDetails(TemplateView):
         context = super(announcementDetails, self).get_context_data(**kwargs)
         e = self.kwargs.get('pk')
         context['announcements'] = announcement.objects.filter(id=e)
-        return context
-
-class readingDetails(TemplateView):
-    template_name = 'church/readingDetails.html'
-    model = reading
-
-    def get_context_data(self, **kwargs):
-        context = super(readingDetails, self).get_context_data(**kwargs)
-        e = self.kwargs.get('pk')
-        context['readings'] = reading.objects.filter(id=e)
         return context
 
 class media(TemplateView):
