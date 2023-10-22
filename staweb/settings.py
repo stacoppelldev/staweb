@@ -25,7 +25,7 @@ load_dotenv()
 # ENABLE FOR PROD
 DATABASE_URL = os.environ.get('DATABASE_URL')
 SECRET_KEY = os.environ.get('SK')
-Debug = True
+Debug = False
 
 # from .local import SK, DB, EMAIL, PASSWORD
 # DATABASE_URL = DB
@@ -40,7 +40,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-ALLOWED_HOSTS = ['localhost', '.ngrok.io', 'staweb.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '.ngrok.io', 'staweb.herokuapp.com', 'stalphonsacoppell.org', '8d41-116-68-75-20.ngrok-free.app']
 
 
 # Application definition
