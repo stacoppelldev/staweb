@@ -25,7 +25,7 @@ load_dotenv()
 # ENABLE FOR PROD
 DATABASE_URL = os.environ.get('DATABASE_URL')
 SECRET_KEY = os.environ.get('SK')
-Debug = True
+Debug = False
 
 # from .local import SK, DB, EMAIL, PASSWORD
 # DATABASE_URL = DB
