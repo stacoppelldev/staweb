@@ -33,7 +33,10 @@ class homeView(FormView):
         context = super(homeView, self).get_context_data(**kwargs)
 
         today = datetime.today().strftime('%Y-%m-%d')
-        context['events'] = event.objects.filter(start_date__gte=today,start_date__lte=("2025-01-26")).filter(event_status='Active').order_by("start_date")
+
+        context['events'] = event.objects.filter(start_date__gte=today,start_date__lte=("2025-01-26"))
+            .filter(event_status='Active')
+            .order_by("start_date")
         context['sundayMassMalayalam1'] = time.objects.get(title="Holy Qurbana Malayalam1")
         context['sundayMassMalayalam'] = time.objects.get(title="Holy Qurbana Malayalam")
         context['sundayMassEnglish'] = time.objects.get(title="Holy Qurbana English")
