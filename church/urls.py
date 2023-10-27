@@ -1,10 +1,11 @@
 from django.urls import path
 from . import views
 from .views import (
-    addBanner, updateBanner, addFAQ, bannerList, FAQList, updateFAQ,
-    announcementDetails, eventDetails, calendar, eventList, announcementList,
-    homeView, addEvent, addAnnouncement, addEvent, addAnnouncement, timeList, updateTime, updateReading,
-    updateAnnouncement, updateEvent, readingList, page, media, send_email, logout)
+    homeView,
+    bannerList, FAQList, eventList, announcementList, timeList, readingList,
+    addBanner, addFAQ, addEvent, addAnnouncement, 
+    updateBanner, updateFAQ, updateEvent, updateAnnouncement, updateTime, updateReading,
+    calendar, media, send_email, logout)
 
 urlpatterns = [
     path('', homeView.as_view(), name='home'),
@@ -18,8 +19,8 @@ urlpatterns = [
     path('calendar/', calendar.as_view(), name='calendar'),
     # path('meet-our-vicars/', views.meetOurVicars, name='meet-our-vicars'),
     # path('contact', contact.as_view(), name='contact'),
-    path('announcementDetails/<int:pk>', announcementDetails.as_view(), name='announcement-details'),
-    path('announcements', announcementList.as_view(), name='announcements'),
+    # path('announcementDetails/<int:pk>', announcementDetails.as_view(), name='announcement-details'),
+    # path('announcements', announcementList.as_view(), name='announcements'),
     # path('FAQ', FAQ.as_view(), name='FAQ'),
     # path('readingDetails/<int:pk>', readingDetails.as_view(), name='reading-details'),
     # path('page/<str:name>', pageView.as_view(), name='page'),
@@ -44,6 +45,7 @@ urlpatterns = [
     path('events', eventList.as_view(), name='events'),
     path('FAQS', FAQList.as_view(), name='FAQS'),
     path('banners', bannerList.as_view(), name='banners'),
-    path('eventDetails/<int:pk>', eventDetails.as_view(), name='event-details'),
+    # path('eventDetails/<int:pk>', eventDetails.as_view(), name='event-details'),
+
     path('logout/', logout, name='logout'),
 ]
