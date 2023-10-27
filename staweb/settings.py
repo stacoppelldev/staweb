@@ -25,7 +25,8 @@ load_dotenv()
 # ENABLE FOR PROD
 DATABASE_URL = os.environ.get('DATABASE_URL')
 SECRET_KEY = os.environ.get('SK')
-Debug = False
+DEBUG = True
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
 # from .local import SK, DB, EMAIL, PASSWORD
 # DATABASE_URL = DB
@@ -139,7 +140,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # https://django-active-link.readthedocs.io/en/latest/
 ACTIVE_LINK_STRICT = True
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
