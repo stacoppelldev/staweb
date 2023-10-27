@@ -70,26 +70,6 @@ class calendar(TemplateView):
 
 # class contact(SuccessMessageMixin, FormView):
 
-class eventDetails(TemplateView):
-    template_name = 'church/eventDetails.html'
-    model = event
-
-    def get_context_data(self, **kwargs):
-        context = super(eventDetails, self).get_context_data(**kwargs)
-        e = self.kwargs.get('pk')
-        context['events'] = event.objects.filter(id=e)
-        return context
-
-class announcementDetails(TemplateView):
-    template_name = 'church/announcementDetails.html'
-    model = announcement
-
-    def get_context_data(self, **kwargs):
-        context = super(announcementDetails, self).get_context_data(**kwargs)
-        e = self.kwargs.get('pk')
-        context['announcements'] = announcement.objects.filter(id=e)
-        return context
-
 class media(TemplateView):
     template_name = 'church/media.html'
 
