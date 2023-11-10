@@ -9,22 +9,7 @@ from .views import (
 
 urlpatterns = [
     path('', homeView.as_view(), name='home'),
-    # path('mass-times/', massTimes.as_view(), name='mass-times'),
-    # path('about/', views.about, name='about'),
-    # path('faith-formation/', views.about, name='faithFormation'),
-    # path('sacraments/', views.sacraments, name='sacraments'),
-    # path('give/', views.give, name='give'),
-    # path('services/', views.services, name='services'),
-    # path('get-involved/', views.about, name='getInvolved'),
     path('calendar/', calendar.as_view(), name='calendar'),
-    # path('meet-our-vicars/', views.meetOurVicars, name='meet-our-vicars'),
-    # path('contact', contact.as_view(), name='contact'),
-    # path('announcementDetails/<int:pk>', announcementDetails.as_view(), name='announcement-details'),
-    # path('announcements', announcementList.as_view(), name='announcements'),
-    # path('FAQ', FAQ.as_view(), name='FAQ'),
-    # path('readingDetails/<int:pk>', readingDetails.as_view(), name='reading-details'),
-    # path('page/<str:name>', pageView.as_view(), name='page'),
-    # path('templateOptions/', templateOptions.as_view(), name='template-options'),
     path('media/<str:year>/<str:event>/', media.as_view(), name='media'),
     path('send-email/', send_email, name='send-email'),
 
@@ -45,7 +30,6 @@ urlpatterns = [
     path('events', eventList.as_view(), name='events'),
     path('FAQS', FAQList.as_view(), name='FAQS'),
     path('banners', bannerList.as_view(), name='banners'),
-    # path('eventDetails/<int:pk>', eventDetails.as_view(), name='event-details'),
 
     path('logout/', logout, name='logout'),
 ]
