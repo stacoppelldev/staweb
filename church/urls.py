@@ -25,7 +25,7 @@ urlpatterns = [
     # path('readingDetails/<int:pk>', readingDetails.as_view(), name='reading-details'),
     # path('page/<str:name>', pageView.as_view(), name='page'),
     # path('templateOptions/', templateOptions.as_view(), name='template-options'),
-    path('media', media.as_view(), name='media'),
+    path('media/<str:year>/<str:event>/', media.as_view(), name='media'),
     path('send-email/', send_email, name='send-email'),
 
     # ADMIN

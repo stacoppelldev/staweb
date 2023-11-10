@@ -30,17 +30,17 @@
         border-left: 3px solid var(--color-primary);
       }
       .title-single-box .title-single {
-        font-size: 2.2rem;
+        font-size: 1.5rem;
         font-weight: 600;
       }
       @media (min-width: 768px) {
         .title-single-box .title-single {
-          font-size: 2.1rem;
+          font-size: 1.75rem;
         }
       }
       @media (min-width: 992px) {
         .title-single-box .title-single {
-          font-size: 2.5rem;
+          font-size: 2rem;
         }
       }
 
@@ -110,8 +110,8 @@
           <div class="row mb-4">
             <div class="col-md-12">
               <div class="title-single-box">
-                <h1 class="title-single">Thirunal</h1>
-                <span class="color-text-a">2023</span>
+                <h1 class="title-single">{{ event }}</h1>
+                <span class="color-text-a">{{ year }}</span>
               </div>
             </div>
           </div>
@@ -123,7 +123,7 @@
               <div class="gallery-item">
                 <img src="{{ photo }}" class="img-fluid" alt="">
                 <div class="gallery-links d-flex align-items-center justify-content-center">
-                  <a href="{{ photo }}" title="Thirunal 2023" class="glightbox preview-link">
+                  <a href="{{ photo }}" title="{{ view.event }} {{ view.year }}" class="glightbox preview-link">
                     <i class="bi bi-arrows-angle-expand"></i>
                   </a>
                 </div>

@@ -78,16 +78,19 @@ class media(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(media, self).get_context_data(**kwargs)
 
+        cloudinaryExp    = 'folder:"media/photos/' + self.kwargs['year'] + '/' + self.kwargs['event'] + '"'
         cloudinaryImages = []
         cloudinaryFolder = cloudinary.Search()\
-            .expression('folder:"media/photos/2023/Thirunal"')\
-            .sort_by('public_id','desc')\
+            .expression(cloudinaryExp)\
+            .sort_by('public_id', 'desc')\
             .max_results('30')\
             .execute()
 
         for asset in cloudinaryFolder['resources']:
             cloudinaryImages.append(asset['secure_url'])
 
+        context['year'] = self.kwargs['year']
+        context['event'] = self.kwargs['event']
         context['photos'] = cloudinaryImages
         return context
 
