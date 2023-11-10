@@ -18,6 +18,7 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth import logout as auth_logout
+import cloudinary
 
 @user_passes_test(lambda u: u.is_superuser)
 def alphonsa(request):
@@ -72,7 +73,23 @@ class calendar(TemplateView):
 # class contact(SuccessMessageMixin, FormView):
 
 class media(TemplateView):
-    template_name = 'church/media.html'
+    template_name = 'church/yummy/media.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(media, self).get_context_data(**kwargs)
+
+        cloudinaryImages = []
+        cloudinaryFolder = cloudinary.Search()\
+            .expression('folder:"media/photos/2023/Thirunal"')\
+            .sort_by('public_id','desc')\
+            .max_results('30')\
+            .execute()
+
+        for asset in cloudinaryFolder['resources']:
+            cloudinaryImages.append(asset['secure_url'])
+
+        context['photos'] = cloudinaryImages
+        return context
 
 
 # ADMIN VIEWS

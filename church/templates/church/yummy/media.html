@@ -1,0 +1,146 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Saint Alphonsa Catholic Church</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <link href="{% static 'assets/img/favicon.ico' %}" rel="icon" type="image/x-icon">
+    <link href="{% static 'assets/img/favicon.ico' %}" rel="apple-touch-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap">
+
+    <link rel="stylesheet" href="{% static 'yummy/assets/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'yummy/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'yummy/assets/vendor/aos/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'yummy/assets/vendor/glightbox/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'yummy/assets/css/main.css' %}">
+
+    <style type="text/css">
+      .title-single-box {
+        padding: 1rem 0 1rem 2rem;
+        border-left: 3px solid var(--color-primary);
+      }
+      .title-single-box .title-single {
+        font-size: 2.2rem;
+        font-weight: 600;
+      }
+      @media (min-width: 768px) {
+        .title-single-box .title-single {
+          font-size: 2.1rem;
+        }
+      }
+      @media (min-width: 992px) {
+        .title-single-box .title-single {
+          font-size: 2.5rem;
+        }
+      }
+
+      .gallery {
+        margin-top: 40px;
+      }
+      .gallery .gallery-item {
+        max-height: 205px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+      }
+      .gallery .gallery-item img {
+        transition: 0.3s;
+      }
+      .gallery .gallery-links {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: all ease-in-out 0.3s;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 3;
+      }
+      .gallery .gallery-links .preview-link,
+      .gallery .gallery-links .details-link {
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.5);
+        transition: 0.3s;
+        line-height: 1.2;
+        margin: 30px 8px 0 8px;
+      }
+      .gallery .gallery-links .preview-link:hover,
+      .gallery .gallery-links .details-link:hover {
+        color: #fff;
+      }
+      .gallery .gallery-links .details-link {
+        font-size: 30px;
+        line-height: 0;
+      }
+      .gallery .gallery-item:hover .gallery-links {
+        opacity: 1;
+      }
+      .gallery .gallery-item:hover .preview-link,
+      .gallery .gallery-item:hover .details-link {
+        margin-top: 0;
+      }
+      .gallery .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .glightbox-clean .gslide-description {
+        background: #222425;
+      }
+      .glightbox-clean .gslide-title {
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    {% include 'church/yummy/header.html' %}
+
+    <main id="main">
+      <section id="gallery" class="gallery section-bg">
+        <div class="container">
+          <div class="row mb-4">
+            <div class="col-md-12">
+              <div class="title-single-box">
+                <h1 class="title-single">Thirunal</h1>
+                <span class="color-text-a">2023</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row gy-4 justify-content-center">
+            {% for photo in photos %}
+
+            <div class="col-6 col-lg-4 col-xl-3">
+              <div class="gallery-item">
+                <img src="{{ photo }}" class="img-fluid" alt="">
+                <div class="gallery-links d-flex align-items-center justify-content-center">
+                  <a href="{{ photo }}" title="Thirunal 2023" class="glightbox preview-link">
+                    <i class="bi bi-arrows-angle-expand"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {% include 'church/yummy/footer.html' %}
+
+    <script src="{% static 'yummy/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'yummy/assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'yummy/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'yummy/assets/js/main.js' %}"></script>
+  </body>
+</html>
