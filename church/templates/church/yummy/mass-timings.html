@@ -27,9 +27,9 @@
       <div class="col-12 col-lg-6 col-xl-4">
         <div class="icon-box h-100">
           <h4>Sunday Holy Qurbana</h4>
-          <p>{{ sundayMassMalayalam1.time }} Solemn Holy Qurbana (Malayalam)</p>
-          <p>{{ sundayMassMalayalam.time }} Solemn Holy Qurbana (Malayalam)</p>
-          <p>{{ sundayMassEnglish.time }} Solemn Holy Qurbana (English)</p>
+          <p>{{ sundayMassMalayalam1.time|time:"h:i A" }} Solemn Holy Qurbana (Malayalam)</p>
+          <p>{{ sundayMassMalayalam.time|time:"h:i A" }} Solemn Holy Qurbana (Malayalam)</p>
+          <p>{{ sundayMassEnglish.time|time:"h:i A" }} Solemn Holy Qurbana (English)</p>
         </div>
       </div>
 
@@ -37,10 +37,24 @@
         <div class="icon-box h-100">
           <h4>Weekday Holy Qurbana</h4>
           <p><strong>Monday - Tuesday - Wednesday - Saturday:</strong></p>
-          <p>{{ weekdayMassMTWS.time }} Holy Qurbana (Malayalam)</p>
+          <p>{{ weekdayMassMTWS.time|time:"h:i A" }} Holy Qurbana (Malayalam)</p>
           <p><strong>Thursday - Friday:</strong></p>
-          <p>{{ weekdayMassTTH.time }} Holy Qurbana (Malayalam). 
+          <p>{{ weekdayMassTTH.time|time:"h:i A" }} Holy Qurbana (Malayalam). 
             <span class="fst-italic">Followed by Novena</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- MAKE VALUE (06:00 PM) CONFIGURABLE -->
+
+      <div class="col-12 col-lg-6 col-xl-4">
+        <div class="icon-box h-100">
+          <h4>Extension Holy Qurbana</h4>
+          <p><strong>Every Saturday:</strong></p>
+          <p>06:00 PM Holy Qurbana (Malayalam)</p>
+          <p class="fst-italic">
+            <span>at St. Francis of Assisi Catholic Church</span><br>
+            <span>8000 Eldorado Pkwy, Frisco, TX 75033</span>
           </p>
         </div>
       </div>
@@ -48,7 +62,7 @@
       <div class="col-12 col-lg-6 col-xl-4">
         <div class="icon-box h-100">
           <h4>Confession</h4>
-          <p>{{ confession.time }} Thursday - Friday</p>
+          <p>{{ confession.time|time:"h:i A" }} Thursday and Friday</p>
         </div>
       </div>
 
@@ -56,9 +70,9 @@
         <div class="icon-box h-100">
           <h4>Adoration</h4>
           <p class="description"><strong>Monday - Tuesday - Wednesday - Saturday:</strong></p>
-          <p class="description">{{ adorationMTWS.time }} At Chapel</p>
+          <p class="description">{{ adorationMTWS.time|time:"h:i A" }} At Chapel</p>
           <p class="description"><strong>Thursday - Friday:</strong></p>
-          <p class="description">{{ adorationTHF.time }} At Church</p>
+          <p class="description">{{ adorationTHF.time|time:"h:i A" }} At Church</p>
         </div>
       </div>
     </div>
