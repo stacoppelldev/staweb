@@ -5,6 +5,7 @@ from django.urls import reverse
 from ckeditor.fields import RichTextField
 import cloudinary
 from cloudinary.models import CloudinaryField
+from staweb.util import unique_slug_generator
 
 EVENT_STATUS = (
     ('Active', 'Active'),
@@ -95,3 +96,48 @@ class page(models.Model):
 
     def __str__(self):
         return '%s' % (self.title)
+
+##### MEDIA > ALBUMS & ALBUM PHOTOS
+
+def get_album_photo_upload_to(instance):
+    return 'media/photos/%s/%s' % (str(instance.album.start_date.year), instance.album.slug)
+
+class PhotoAlbum(models.Model):
+    start_date = models.DateField()
+    end_date   = models.DateField(blank=True, null=True)
+    title      = models.CharField()
+    slug       = models.SlugField(max_length=50, blank=True, editable=False)
+
+    class Meta:
+        verbose_name = 'Photo Album'
+        verbose_name_plural = 'Photo Albums'
+        ordering = ['-start_date']
+
+    def __str__(self):
+        return '%s: %s' % (self.start_date, self.title)
+
+@receiver(pre_save, sender=PhotoAlbum)
+def PhotoAlbumPreSaveReceiver(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = unique_slug_generator(instance)
+
+    cloudinary.api.create_folder('media/photos/' + str(instance.start_date.year) + '/' + instance.slug)
+
+@receiver(pre_delete, sender=PhotoAlbum)
+def PhotoAlbumPreDeleteReceiver(sender, instance, *args, **kwargs):
+    cloudinary.api.delete_folder('media/photos/' + str(instance.start_date.year) + '/' + instance.slug)
+
+class Photo(models.Model):
+    image = CloudinaryField('image', folder=get_album_photo_upload_to)
+    album = models.ForeignKey(PhotoAlbum, on_delete=models.CASCADE, related_name='photos')
+
+    def __unicode__(self):
+        try:
+            public_id = self.image.public_id
+        except AttributeError:
+            public_id = ''
+        return 'Photo <%s>' % (public_id)
+
+@receiver(pre_save, sender=Photo)
+def PhotoPreSaveReceiver(sender, instance, *args, **kwargs):
+    cloudinary.uploader.upload('media/photos/' + str(instance.start_date.year) + '/' + instance.slug)

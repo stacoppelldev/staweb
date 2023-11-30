@@ -7,7 +7,7 @@ from django.core.mail import send_mail
 from django.core.serializers.json import DjangoJSONEncoder
 from django.urls import reverse
 from django.views.generic import TemplateView, FormView
-from .models import event, time, reading, announcement, faq, banner
+from .models import event, time, reading, announcement, faq, banner, PhotoAlbum
 from .forms import reserveAuditoriumForm, contactForm
 
 class home(FormView):
@@ -37,6 +37,7 @@ class home(FormView):
         context['announcements'] = announcement.objects.all().order_by('order')
         context['faqs'] = faq.objects.all()
         context['banners'] = banner.objects.all()
+        context['photoAlbums'] = getPhotoAlbums()
         return context
 
 class media(TemplateView):
@@ -45,7 +46,11 @@ class media(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(media, self).get_context_data(**kwargs)
 
-        cloudinaryExp    = 'folder:"media/photos/' + self.kwargs['year'] + '/' + self.kwargs['event'] + '"'
+        pStartDate = self.kwargs['startDate']
+        pSlug      = self.kwargs['slug']
+        startDate  = datetime.strptime(pStartDate, '%Y-%m-%d').date()
+
+        cloudinaryExp    = 'folder:"media/photos/' + str(startDate.year) + '/' + pSlug + '"'
         cloudinaryImages = []
         cloudinaryFolder = cloudinary.Search()\
             .expression(cloudinaryExp)\
@@ -56,8 +61,8 @@ class media(TemplateView):
         for asset in cloudinaryFolder['resources']:
             cloudinaryImages.append(asset['secure_url'])
 
-        context['year'] = self.kwargs['year']
-        context['event'] = self.kwargs['event']
+        context['photoAlbums'] = getPhotoAlbums()
+        context['album'] = PhotoAlbum.objects.filter(start_date=pStartDate).filter(slug=pSlug).get()
         context['photos'] = cloudinaryImages
         return context
 
@@ -85,3 +90,31 @@ class calendar(TemplateView):
 
         context['events'] = json.dumps(eventsObj, cls=DjangoJSONEncoder)
         return context
+
+
+# UTIL FUNCTION
+
+def getPhotoAlbums():
+    a = dict()
+    albums = PhotoAlbum.objects.all().order_by('start_date')
+
+    for album in albums:
+        c = {
+            'year': album.start_date.year,
+            'start_date': album.start_date,
+            'slug': album.slug,
+            'title': album.title
+        }
+
+        if (album.start_date.year in a.keys()):
+            # GET THE VALUE FOR THAT YEAR & ADD TO IT
+            b = a.get(album.start_date.year)
+            b.append(c)
+            a[album.start_date.year] = b
+        else:
+            # CREATE A NEW YEAR AND ADD TO IT
+            d = []
+            d.append(c)
+            a[album.start_date.year] = d
+
+    return a
