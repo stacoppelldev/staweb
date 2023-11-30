@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{% static 'yummy/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}">
     <link rel="stylesheet" href="{% static 'yummy/assets/vendor/aos/aos.css' %}">
     <link rel="stylesheet" href="{% static 'yummy/assets/vendor/glightbox/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'yummy/assets/vendor/swiper/swiper-bundle.min.css' %}">
     <link rel="stylesheet" href="{% static 'yummy/assets/css/main.css' %}">
 
     <style type="text/css">
@@ -110,8 +111,8 @@
           <div class="row mb-4">
             <div class="col-md-12">
               <div class="title-single-box">
-                <h1 class="title-single">{{ event }}</h1>
-                <span class="color-text-a">{{ year }}</span>
+                <h1 class="title-single">{{ album.title }}</h1>
+                <span class="color-text-a">{{ album.start_date }} - {{ album.end_date }}</span>
               </div>
             </div>
           </div>
@@ -123,7 +124,7 @@
               <div class="gallery-item">
                 <img src="{{ photo }}" class="img-fluid" alt="">
                 <div class="gallery-links d-flex align-items-center justify-content-center">
-                  <a href="{{ photo }}" title="{{ event }} {{ year }}" class="glightbox preview-link">
+                  <a href="{{ photo }}" title="{{ album.start_date.year }} {{ album.title }}" class="glightbox preview-link">
                     <i class="bi bi-arrows-angle-expand"></i>
                   </a>
                 </div>
@@ -141,6 +142,8 @@
     <script src="{% static 'yummy/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'yummy/assets/vendor/aos/aos.js' %}"></script>
     <script src="{% static 'yummy/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'yummy/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'yummy/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
     <script src="{% static 'yummy/assets/js/main.js' %}"></script>
   </body>
 </html>

@@ -4,7 +4,7 @@ from .views import home, media, send_email, calendar
 
 urlpatterns = [
     path('', home.as_view(), name='home'),
-    path('media/<str:year>/<str:event>/', media.as_view(), name='media'),
+    path('media/<str:startDate>/<str:slug>/', media.as_view(), name='media'),
     path('send-email/', send_email, name='send-email'),
     path('calendar/', calendar.as_view(), name='calendar')
 ]
