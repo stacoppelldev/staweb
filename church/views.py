@@ -20,6 +20,7 @@ class home(FormView):
         context = super(home, self).get_context_data(**kwargs)
 
         today = datetime.today().strftime('%Y-%m-%d')
+        latestAlbum = PhotoAlbum.objects.order_by('-start_date').first()
 
         context['events'] = event.objects.filter(start_date__gte=today,start_date__lte=('2025-01-26')).filter(event_status='Active').order_by('start_date')
         context['sundayMassMalayalam1'] = time.objects.get(title='Holy Qurbana Malayalam1')
@@ -38,6 +39,8 @@ class home(FormView):
         context['faqs'] = faq.objects.all()
         context['banners'] = banner.objects.all()
         context['photoAlbums'] = getPhotoAlbums()
+        context['latestAlbum'] = latestAlbum
+        context['latestAlbumPhotos'] = getLatestAlbumPhotos(latestAlbum)
         return context
 
 class media(TemplateView):
@@ -118,3 +121,17 @@ def getPhotoAlbums():
             a[album.start_date.year] = d
 
     return a
+
+def getLatestAlbumPhotos(latestAlbum):
+    cloudinaryExp    = 'folder:"media/photos/' + str(latestAlbum.start_date.year) + '/' + latestAlbum.slug + '"'
+    cloudinaryImages = []
+    cloudinaryFolder = cloudinary.Search()\
+        .expression(cloudinaryExp)\
+        .sort_by('public_id', 'desc')\
+        .max_results('30')\
+        .execute()
+
+    for asset in cloudinaryFolder['resources']:
+        cloudinaryImages.append(asset['secure_url'])
+
+    return cloudinaryImages
