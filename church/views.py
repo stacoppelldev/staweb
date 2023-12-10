@@ -1,23 +1,19 @@
 import json
 import cloudinary
-from datetime import datetime
-from django.http.response import HttpResponseRedirect
+from datetime import datetime, timedelta
+from django.http import JsonResponse
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.core.serializers.json import DjangoJSONEncoder
 from django.urls import reverse
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView
+from django.shortcuts import render
 from .models import event, time, reading, announcement, faq, banner, PhotoAlbum
-from .forms import reserveAuditoriumForm, contactForm
+from .forms import ContactForm, ReserveAuditoriumForm
 
-class home(FormView):
-    form_class = reserveAuditoriumForm
-    success_url = '/'
-    template_name = 'church/yummy/index.html'
-    success_message = 'Message successfully sent'
-
+class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
-        context = super(home, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         today = datetime.today().strftime('%Y-%m-%d')
         latestAlbum = PhotoAlbum.objects.order_by('-start_date').first()
@@ -41,13 +37,18 @@ class home(FormView):
         context['photoAlbums'] = getPhotoAlbums()
         context['latestAlbum'] = latestAlbum
         context['latestAlbumPhotos'] = getLatestAlbumPhotos(latestAlbum)
+        context['reserve_auditorium_form']  = ReserveAuditoriumForm()
+        context['contact_form'] = ContactForm()
         return context
 
-class media(TemplateView):
+    def get(self, request):
+        return render(request, 'church/yummy/index.html', self.get_context_data())
+
+class PhotoAlbumView(TemplateView):
     template_name = 'church/yummy/media.html'
 
     def get_context_data(self, **kwargs):
-        context = super(media, self).get_context_data(**kwargs)
+        context = super(PhotoAlbumView, self).get_context_data(**kwargs)
 
         pStartDate = self.kwargs['startDate']
         pSlug      = self.kwargs['slug']
@@ -69,19 +70,30 @@ class media(TemplateView):
         context['photos'] = cloudinaryImages
         return context
 
-def send_email(request):
-    e = request.POST['email']
-    # send_mail('Thank you for subscribing', 'Subscribed Successfully', 'devalphonsa@gmail.com', [e])
-    messages.success(request, 'Successfully subscribed!')
-    return HttpResponseRedirect('/')
+def processReservationRequest(request):
+    reserveAuditoriumForm = ReserveAuditoriumForm(request.POST)
+    if reserveAuditoriumForm.is_valid():
+        sendReservationRequestMail(reserveAuditoriumForm)
+        return JsonResponse({ 'status': True })
+    else:
+        return JsonResponse({ 'status': False, 'errors': reserveAuditoriumForm.errors })
+
+def processContactUs(request):
+    contactForm = ContactForm(request.POST)
+    if contactForm.is_valid():
+        sendContactUsMail(contactForm)
+        return JsonResponse({ 'status': True })
+    else:
+        return JsonResponse({ 'status': False, 'errors': contactForm.errors })
+
 
 # UNUSED (FOR NOW)
 
-class calendar(TemplateView):
+class CalendarView(TemplateView):
     template_name = 'church/yummy/calendar.html'
 
     def get_context_data(self, **kwargs):
-        context = super(calendar, self).get_context_data(**kwargs)
+        context = super(CalendarView, self).get_context_data(**kwargs)
 
         events = event.objects.all()
         eventsObj = [{
@@ -135,3 +147,9 @@ def getLatestAlbumPhotos(latestAlbum):
         cloudinaryImages.append(asset['secure_url'])
 
     return cloudinaryImages
+
+def sendReservationRequestMail(reserveAuditoriumForm):
+    send_mail('Thank you for subscribing', 'Subscribed Successfully', 'devalphonsa@gmail.com', ['devalphonsa@gmail.com'])
+
+def sendContactUsMail(contactForm):
+    send_mail('Thank you for subscribing', 'Subscribed Successfully', 'devalphonsa@gmail.com', ['devalphonsa@gmail.com'])

@@ -24,82 +24,17 @@
     <link rel="stylesheet" href="{% static 'yummy/assets/vendor/glightbox/css/glightbox.min.css' %}">
     <link rel="stylesheet" href="{% static 'yummy/assets/vendor/swiper/swiper-bundle.min.css' %}">
     <link rel="stylesheet" href="{% static 'yummy/assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'yummy/assets/css/media.css' %}">
 
-    <style type="text/css">
-      .title-single-box {
-        padding: 1rem 0 1rem 2rem;
-        border-left: 3px solid var(--color-primary);
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDS59V4TLV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
       }
-      .title-single-box .title-single {
-        font-size: 1.5rem;
-        font-weight: 600;
-      }
-      @media (min-width: 768px) {
-        .title-single-box .title-single {
-          font-size: 1.75rem;
-        }
-      }
-      @media (min-width: 992px) {
-        .title-single-box .title-single {
-          font-size: 2rem;
-        }
-      }
-
-      .gallery {
-        margin-top: 40px;
-      }
-      .gallery .gallery-item {
-        max-height: 205px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-      }
-      .gallery .gallery-item img {
-        transition: 0.3s;
-      }
-      .gallery .gallery-links {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        transition: all ease-in-out 0.3s;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: 3;
-      }
-      .gallery .gallery-links .preview-link,
-      .gallery .gallery-links .details-link {
-        font-size: 20px;
-        color: rgba(255, 255, 255, 0.5);
-        transition: 0.3s;
-        line-height: 1.2;
-        margin: 30px 8px 0 8px;
-      }
-      .gallery .gallery-links .preview-link:hover,
-      .gallery .gallery-links .details-link:hover {
-        color: #fff;
-      }
-      .gallery .gallery-links .details-link {
-        font-size: 30px;
-        line-height: 0;
-      }
-      .gallery .gallery-item:hover .gallery-links {
-        opacity: 1;
-      }
-      .gallery .gallery-item:hover .preview-link,
-      .gallery .gallery-item:hover .details-link {
-        margin-top: 0;
-      }
-      .gallery .gallery-item:hover img {
-        transform: scale(1.1);
-      }
-
-      .glightbox-clean .gslide-description {
-        background: #222425;
-      }
-      .glightbox-clean .gslide-title {
-        color: rgba(255, 255, 255, 0.8);
-        margin: 0;
-      }
-    </style>
+      gtag('js', new Date());
+      gtag('config', 'G-TDS59V4TLV');
+    </script>
   </head>
 
   <body class="min-vh-100 d-flex flex-column">
@@ -142,7 +77,6 @@
     <script src="{% static 'yummy/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'yummy/assets/vendor/aos/aos.js' %}"></script>
     <script src="{% static 'yummy/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
-    <script src="{% static 'yummy/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
     <script src="{% static 'yummy/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
     <script src="{% static 'yummy/assets/js/main.js' %}"></script>
   </body>

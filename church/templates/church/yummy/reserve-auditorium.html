@@ -36,57 +36,9 @@
       </div>
 
       <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
-        <!--
-        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form"
-          data-aos="fade-up" data-aos-delay="100">
-          <div class="row gy-4">
-            <div class="col-lg-4 col-md-6">
-              <input type="text" id="name" name="name" class="form-control" placeholder="Your Name"
-                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <input type="email" id="email" name="email" class="form-control" placeholder="Your Email"
-                data-rule="email" data-msg="Please enter a valid email">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <input type="text" id="phone" name="phone" class="form-control" placeholder="Your Phone"
-                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <input type="text" id="date" name="date" class="form-control" placeholder="Date"
-                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <input type="text" id="time" name="time" class="form-control" placeholder="Time"
-                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <input type="number" id="people" name="people" class="form-control" placeholder="# of people"
-                data-rule="minlen:1" data-msg="Please enter at least 1 chars">
-              <div class="validate"></div>
-            </div>
-          </div>
-
-          <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
-            <div class="validate"></div>
-          </div>
-
-          <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your reservation request was sent. We will call back or send an 
-              Email to confirm your reservation. Thank you!</div>
-          </div>
-        </form> -->
-
-        <form method="post" role="form" class="php-email-form">
-          {% crispy form %}
+        <form action="{% url 'e-reserve-auditorium' %}" method="post" role="form" class="php-email-form"
+          data-recaptcha-site-key="6LeMzyspAAAAAMsAkjUaFK_9XgUH4Jqw_X4QS7_G">
+          {% crispy reserve_auditorium_form %}
         </form>
       </div>
     </div>

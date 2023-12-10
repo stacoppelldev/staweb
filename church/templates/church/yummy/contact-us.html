@@ -3,10 +3,27 @@
 <style type="text/css">
   .contact .php-email-form {
     margin-top: 0;
-    padding: 30px;
+    padding: 25px;
   }
   .contact .php-email-form .form-group {
     padding-bottom: 0;
+  }
+  .contact .php-email-form label {
+    font-size: 0.9rem;
+  }
+  .contact .php-email-form span.asteriskField {
+    color: var(--color-primary);
+  }
+  .contact .php-email-form input[type=submit] {
+    background: var(--color-primary);
+    border: 0;
+    padding: 14px 60px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+  }
+  .contact .php-email-form input[type=submit]:hover {
+    background: #ec2727;
   }
 </style>
 
@@ -17,7 +34,7 @@
       <p>Need Help? <span>Contact Us</span></p>
     </div>
 
-    <div class="row">
+    <div class="row gx-2">
       <div class="col-lg-4 mb-3">
         <div class="info-item d-flex align-items-center">
           <i class="icon bi bi-map flex-shrink-0"></i>
@@ -49,51 +66,20 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row gx-3 h-100">
       <div class="col-lg-6">
         <iframe
           src="https://maps.google.com/maps?q=st%20alphonsa%20catholic%20churchcoppell&t=&z=13&ie=UTF8&iwloc=&output=embed"
-          class="mb-3 mb-lg-0"
-          style="border:0; width:100%; height:378px;"
+          class="mb-3 mb-lg-0 w-100 h-100 border-0"
           frameborder="0"
           allowfullscreen></iframe>
       </div>
 
       <div class="col-lg-6">
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-          <div class="row">
-            <div class="col-md-6 form-group">
-              <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
-            </div>
-            <div class="col-md-6 form-group mt-3 mt-md-0">
-              <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
-            </div>
-          </div>
-          <div class="form-group mt-3">
-            <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
-          </div>
-          <div class="form-group mt-3">
-            <textarea name="message" class="form-control" rows="5" placeholder="Message" required></textarea>
-          </div>
-          <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your message has been sent. Thank you!</div>
-          </div>
-          <div class="text-center">
-            <button type="submit">Send Message</button>
-          </div>
+        <form action="{% url 'e-contact-us' %}" method="post" role="form" class="php-email-form"
+          data-recaptcha-site-key="6LeMzyspAAAAAMsAkjUaFK_9XgUH4Jqw_X4QS7_G">
+          {% crispy contact_form %}
         </form>
-
-        <!--
-        <form method="post" role="form" class="php-email-form">
-          {% crispy form %}
-
-          <div class="form-group">
-            <button type="submit" class="btn btn-outline-info">Send</button>
-          </div>
-        </form>
-        -->
       </div>
     </div>
   </div>

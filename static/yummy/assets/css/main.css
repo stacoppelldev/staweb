@@ -1404,6 +1404,7 @@ section {
   background: #df1529;
   text-align: left;
   padding: 15px;
+  margin-bottom: 24px;
   font-weight: 600;
 }
 
@@ -1417,6 +1418,7 @@ section {
   background: #059652;
   text-align: center;
   padding: 15px;
+  margin-bottom: 24px;
   font-weight: 600;
 }
 
@@ -1425,6 +1427,7 @@ section {
   background: #fff;
   text-align: center;
   padding: 15px;
+  margin-bottom: 24px;
 }
 
 .contact .php-email-form .loading:before {

@@ -1,14 +1,12 @@
-from .models import event, time, reading, announcement, faq, banner
 from django import forms
-from django.forms import ModelForm
-from django.core.mail import send_mail
+from django.forms import Form, ModelForm
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Div, Column, Field, Submit
-from captcha.fields import CaptchaField
+from crispy_forms.layout import Layout, Div, Column, Field, Submit, HTML
+from .models import event, time, reading, announcement, faq, banner
 
 # FORMS FOR ADDING DIFFERENT TYPES
 
-class addEventForm(forms.ModelForm):
+class addEventForm(ModelForm):
     class Meta:
         model = event
         fields = ['title', 'start_date', 'start_time', 'end_date', 'end_time',
@@ -25,7 +23,7 @@ class addEventForm(forms.ModelForm):
             'event_files': forms.FileInput(attrs={'class': 'form-control'}),
         }
 
-class addFAQForm(forms.ModelForm):
+class addFAQForm(ModelForm):
     class Meta:
         model = faq
         fields = ['question', 'answer']
@@ -34,12 +32,12 @@ class addFAQForm(forms.ModelForm):
             'answer': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
-class addAnnouncementForm(forms.ModelForm):
+class addAnnouncementForm(ModelForm):
     class Meta:
         model = announcement
         fields = ['message', 'detail', 'announcement_files', 'order']
 
-class addBannerForm(forms.ModelForm):
+class addBannerForm(ModelForm):
     class Meta:
         model = banner
         fields = ['message', 'hyperlink']
@@ -48,7 +46,7 @@ class addBannerForm(forms.ModelForm):
             'hyperlink': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
-class addFAQ(forms.ModelForm):
+class addFAQ(ModelForm):
     class Meta:
         model = faq
         fields = ['question', 'answer']
@@ -59,7 +57,7 @@ class addFAQ(forms.ModelForm):
 
 # FORMS FOR EDITING DIFFERENT TYPES
 
-class updateEventForm(forms.ModelForm):
+class updateEventForm(ModelForm):
     class Meta:
         model = event
         fields = ['title', 'start_date', 'start_time', 'end_date', 'end_time',
@@ -76,7 +74,7 @@ class updateEventForm(forms.ModelForm):
             'event_files': forms.FileInput(attrs={'class': 'form-control'}),
         }
 
-class updateBannerForm(forms.ModelForm):
+class updateBannerForm(ModelForm):
     class Meta:
         model = banner
         fields = ['message', 'hyperlink']
@@ -85,12 +83,12 @@ class updateBannerForm(forms.ModelForm):
             'hyperlink': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
-class updateAnnouncementForm(forms.ModelForm):
+class updateAnnouncementForm(ModelForm):
     class Meta:
         model = announcement
         fields = ['message', 'detail', 'announcement_files', 'order']
 
-class updateTimeForm(forms.ModelForm):
+class updateTimeForm(ModelForm):
     class Meta:
         model = time
         fields = ['title', 'time']
@@ -99,7 +97,7 @@ class updateTimeForm(forms.ModelForm):
             'time': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'}),
         }
 
-class updateReadingForm(forms.ModelForm):
+class updateReadingForm(ModelForm):
     class Meta:
         model = reading
         fields = ['date', 'reading_1', 'reading_1_passage', 'reading_2',
@@ -114,7 +112,7 @@ class updateReadingForm(forms.ModelForm):
             'gospel_passage': forms.Textarea(attrs={'class': 'form-control'}),
         }
 
-class updateFAQForm(forms.ModelForm):
+class updateFAQForm(ModelForm):
     class Meta:
         model = faq
         fields = ['question', 'answer']
@@ -125,45 +123,13 @@ class updateFAQForm(forms.ModelForm):
 
 # ADDITIONAL FORMS (HAS NO MODEL, USED ONLY TO SEND EMAIL)
 
-class contactForm(forms.Form):
-    name    = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    subject = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    email   = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    cell    = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    message = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control'}))
-    captcha = CaptchaField()
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.layout = Layout(
-            Div(
-                Column(
-                    Field('name', css_class='form-control'),
-                    css_class='col-md-6 form-group',
-                ),
-                Column(
-                    Field('email', css_class='form-control'),
-                    css_class='col-md-6 form-group mt-3 mt-md-0',
-                ),
-                css_class='row'
-            ),
-            Div('subject', css_class='form-group mt-3'),
-            Div('message', css_class='form-group mt-3')
-        )
-
-    def clean(self):
-        user_email = self.cleaned_data['email']
-        send_mail('test', 'test', 'devalphonsa@gmail.com', [user_email])
-
-class reserveAuditoriumForm(forms.Form):
+class ReserveAuditoriumForm(Form):
     name    = forms.CharField(widget=forms.TextInput())
     email   = forms.CharField(widget=forms.TextInput(attrs={'type': 'email'}))
     phone   = forms.CharField(widget=forms.TextInput())
     date    = forms.CharField(widget=forms.DateInput(attrs={'type': 'date'}))
     time    = forms.CharField(widget=forms.TimeInput(attrs={'type': 'time'}))
     people  = forms.IntegerField()
-    captcha = CaptchaField()
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -230,15 +196,89 @@ class reserveAuditoriumForm(forms.Form):
                     Div(css_class='validate'),
                     css_class='col-md-6',
                 ),
-                css_class='row gy-4'
+                css_class='row gx-3 gy-2'
             ),
-            Div(css_class='mb-5'),
+            Div(
+                Div(css_class='loading'),
+                Div(css_class='error-message'),
+                Div(
+                    HTML('Your reservation request was sent. We will call back or send an Email to confirm your reservation. Thank you!'),
+                    css_class='sent-message'
+                ),
+                css_class='mt-3'
+            ),
             Div(
                 Submit('request-reservation', 'Request Reservation'),
                 css_class='text-center'
-            ),
+            )
         )
 
-    def clean(self):
-        user_email = self.cleaned_data['email']
-        send_mail('test', 'test', 'devalphonsa@gmail.com', [user_email])
+class ContactForm(Form):
+    name    = forms.CharField(widget=forms.TextInput())
+    email   = forms.CharField(widget=forms.TextInput(attrs={'type': 'email'}))
+    # phone   = forms.CharField(widget=forms.TextInput())
+    subject = forms.CharField(widget=forms.TextInput())
+    message = forms.CharField(widget=forms.Textarea())
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            Div(
+                Column(
+                    Field('name', id='name',
+                        css_class='form-control',
+                        data_rule='minlen:4',
+                        data_msg='Please enter at least 4 chars',
+                        placeholder='Your Name'
+                    ),
+                    Div(css_class='validate'),
+                    css_class='col-md-6',
+                ),
+                Column(
+                    Field('email', id='email',
+                        css_class='form-control',
+                        data_rule='email',
+                        data_msg='Please enter a valid email',
+                        placeholder='Your Email'
+                    ),
+                    Div(css_class='validate'),
+                    css_class='col-md-6',
+                ),
+                Column(
+                    Field('subject', id='subject',
+                        css_class='form-control',
+                        data_rule='minlen:4',
+                        data_msg='Please enter at least 4 chars',
+                        placeholder='Subject'
+                    ),
+                    Div(css_class='validate'),
+                    css_class='col-md-12',
+                ),
+                Column(
+                    Field('message', id='message',
+                        css_class='form-control',
+                        data_rule='minlen:4',
+                        data_msg='Please enter at least 4 chars',
+                        rows='3',
+                        placeholder='Message'
+                    ),
+                    Div(css_class='validate'),
+                    css_class='col-md-12',
+                ),
+                css_class='row gx-3 gy-2'
+            ),
+            Div(
+                Div(css_class='loading'),
+                Div(css_class='error-message'),
+                Div(
+                    HTML('Your message has been sent. Thank you!'),
+                    css_class='sent-message'
+                ),
+                css_class='mt-3'
+            ),
+            Div(
+                Submit('contact-us', 'Send Message'),
+                css_class='text-center'
+            )
+        )

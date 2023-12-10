@@ -1,10 +1,10 @@
 from django.urls import path
-from . import views
-from .views import home, media, send_email, calendar
+from .views import HomeView, processReservationRequest, processContactUs, PhotoAlbumView, CalendarView
 
 urlpatterns = [
-    path('', home.as_view(), name='home'),
-    path('media/<str:startDate>/<str:slug>/', media.as_view(), name='media'),
-    path('send-email/', send_email, name='send-email'),
-    path('calendar/', calendar.as_view(), name='calendar')
+    path('', HomeView.as_view(), name='home'),
+    path('media/<str:startDate>/<str:slug>/', PhotoAlbumView.as_view(), name='media'),
+    path('reserve-auditorium/', processReservationRequest, name='e-reserve-auditorium'),
+    path('contact-us/', processContactUs, name='e-contact-us'),
+    path('calendar/', CalendarView.as_view(), name='calendar')
 ]
