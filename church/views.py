@@ -24,6 +24,7 @@ class HomeView(TemplateView):
         context['sundayMassEnglish'] = time.objects.get(title='Holy Qurbana English')
         context['weekdayMassMTWS'] = time.objects.get(title='Weekday Mass MTWS')
         context['weekdayMassTTH'] = time.objects.get(title='Weekday Mass TTH')
+        context['weekdayExtMass'] = time.objects.get(title='Weekday Extension Mass')
         context['adorationMTWS'] = time.objects.get(title='Adoration MTWS')
         context['adorationTHF'] = time.objects.get(title='Adoration THF')
         context['confession'] = time.objects.get(title='Confession')
