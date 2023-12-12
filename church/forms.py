@@ -124,12 +124,12 @@ class updateFAQForm(ModelForm):
 # ADDITIONAL FORMS (HAS NO MODEL, USED ONLY TO SEND EMAIL)
 
 class ReserveAuditoriumForm(Form):
-    name    = forms.CharField(widget=forms.TextInput())
-    email   = forms.CharField(widget=forms.TextInput(attrs={'type': 'email'}))
-    phone   = forms.CharField(widget=forms.TextInput())
-    date    = forms.CharField(widget=forms.DateInput(attrs={'type': 'date'}))
-    time    = forms.CharField(widget=forms.TimeInput(attrs={'type': 'time'}))
-    people  = forms.IntegerField()
+    name   = forms.CharField(widget=forms.TextInput())
+    email  = forms.CharField(widget=forms.TextInput(attrs={'type': 'email'}))
+    phone  = forms.CharField(widget=forms.TextInput())
+    date   = forms.CharField(widget=forms.DateInput(attrs={'type': 'date'}))
+    time   = forms.CharField(widget=forms.TimeInput(attrs={'type': 'time'}))
+    people = forms.IntegerField()
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -216,7 +216,6 @@ class ReserveAuditoriumForm(Form):
 class ContactForm(Form):
     name    = forms.CharField(widget=forms.TextInput())
     email   = forms.CharField(widget=forms.TextInput(attrs={'type': 'email'}))
-    # phone   = forms.CharField(widget=forms.TextInput())
     subject = forms.CharField(widget=forms.TextInput())
     message = forms.CharField(widget=forms.Textarea())
 
