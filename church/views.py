@@ -1,13 +1,16 @@
 import json
 import cloudinary
 from datetime import datetime, timedelta
+from os import environ as env
 from django.http import JsonResponse
 from django.contrib import messages
-from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives, send_mail
 from django.core.serializers.json import DjangoJSONEncoder
 from django.urls import reverse
 from django.views.generic import TemplateView
 from django.shortcuts import render
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 from .models import event, time, reading, announcement, faq, banner, PhotoAlbum
 from .forms import ContactForm, ReserveAuditoriumForm
 
@@ -24,6 +27,7 @@ class HomeView(TemplateView):
         context['sundayMassEnglish'] = time.objects.get(title='Holy Qurbana English')
         context['weekdayMassMTWS'] = time.objects.get(title='Weekday Mass MTWS')
         context['weekdayMassTTH'] = time.objects.get(title='Weekday Mass TTH')
+        context['weekdayExtMass'] = time.objects.get(title='Weekday Extension Mass')
         context['adorationMTWS'] = time.objects.get(title='Adoration MTWS')
         context['adorationTHF'] = time.objects.get(title='Adoration THF')
         context['confession'] = time.objects.get(title='Confession')
@@ -149,7 +153,47 @@ def getLatestAlbumPhotos(latestAlbum):
     return cloudinaryImages
 
 def sendReservationRequestMail(reserveAuditoriumForm):
-    send_mail('Thank you for subscribing', 'Subscribed Successfully', 'devalphonsa@gmail.com', ['devalphonsa@gmail.com'])
+    form_data = reserveAuditoriumForm.cleaned_data
+    context = {
+        'name'   : form_data['name'],
+        'email'  : form_data['email'],
+        'phone'  : form_data['phone'],
+        'date'   : form_data['date'],
+        'time'   : form_data['time'],
+        'people' : form_data['people']
+    }
+
+    html_message = render_to_string('church/email/reservation-request.html', context=context)
+    plain_message = strip_tags(html_message)
+
+    message = EmailMultiAlternatives(
+        subject='[STAWeb] Auditorium Reservation Request: ' + form_data['name'],
+        body=plain_message,
+        from_email='devalphonsa@gmail.com',
+        to=[env['MAIL_TO_RESERVATION_REQUEST']],
+        cc=[env['MAIL_CC_ALL']]
+    )
+    message.attach_alternative(html_message, 'text/html')
+    message.send()
 
 def sendContactUsMail(contactForm):
-    send_mail('Thank you for subscribing', 'Subscribed Successfully', 'devalphonsa@gmail.com', ['devalphonsa@gmail.com'])
+    form_data = contactForm.cleaned_data
+    context = {
+        'name'    : form_data['name'],
+        'email'   : form_data['email'],
+        'subject' : form_data['subject'],
+        'message' : form_data['message']
+    }
+
+    html_message = render_to_string('church/email/contact-us.html', context=context)
+    plain_message = strip_tags(html_message)
+
+    message = EmailMultiAlternatives(
+        subject='[STAWeb] Contact Us: ' + form_data['name'],
+        body=plain_message,
+        from_email='devalphonsa@gmail.com',
+        to=[env['MAIL_TO_CONTACT_US']],
+        cc=[env['MAIL_CC_ALL']]
+    )
+    message.attach_alternative(html_message, 'text/html')
+    message.send()

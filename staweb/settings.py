@@ -18,20 +18,12 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-
 load_dotenv()
-
 
 # ENABLE FOR PROD
 DATABASE_URL = os.environ.get('DATABASE_URL')
 SECRET_KEY = os.environ.get('SK')
 DEBUG = False
-
-# from .local import SK, DB, EMAIL, PASSWORD
-# DATABASE_URL = DB
-# SECRET_KEY = SK
-# DEBUG = True
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
