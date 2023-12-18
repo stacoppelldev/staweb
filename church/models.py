@@ -19,16 +19,13 @@ class event(models.Model):
     end_date     = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     end_time     = models.TimeField(blank=True, null=True)
     description  = models.CharField(max_length=100, null=True, blank=True)
-    cover_image  = models.ImageField(upload_to='images', blank=True, null=True)
-    event_image  = models.ImageField(upload_to='images', blank=True, null=True)
+    cover_image  = CloudinaryField(folder='events', blank=True, null=True)
+    event_image  = CloudinaryField(folder='events', blank=True, null=True)
     event_status = models.CharField(choices=EVENT_STATUS, default='Active', max_length=30)
-    event_files  = models.FileField(upload_to='files', blank=True, null=True)
+    event_files  = CloudinaryField(folder='events', blank=True, null=True)
 
     def __str__(self):
-        return '%s %s %s %s' % (self.title, self.start_date, self.start_time, self.description)
-
-    def get_absolute_url(self):
-        return reverse('event-details', args=[self.id])
+        return '%s %s: %s' % (self.start_date, self.start_time, self.title)
 
 class time(models.Model):
     title = models.CharField(max_length=100)
