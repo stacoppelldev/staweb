@@ -20,20 +20,6 @@
         <h2>Upcoming Events</h2>
       </div>
 
-      <div class="row no-gutters">
-        {% for event in events %}
-        <div class="col-lg-4 col-md-6 content-item" data-aos="fade-in">
-          <span>{{ event.start_date }}</span>
-          <a href="/eventDetails/{{ event.id }}">
-            <h4>{{ event.title }}</h4>
-          </a>
-          {% if event.description %}
-          <p>{{ event.description }}</p>
-          {% endif %}
-        </div>
-        {% endfor %}
-      </div>
-
       <div class="text-center">
         <a href="{% url 'calendar' %}" class="btn btn-outline-info">View Full Calendar</a>
       </div>
