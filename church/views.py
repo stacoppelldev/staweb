@@ -21,7 +21,7 @@ class HomeView(TemplateView):
         today = datetime.today().strftime('%Y-%m-%d')
         latestAlbum = PhotoAlbum.objects.order_by('-start_date').first()
 
-        context['events'] = event.objects.filter(start_date__gte=today,start_date__lte=('2025-01-26')).filter(event_status='Active').order_by('start_date')
+        context['events'] = event.objects.filter(start_date__gte=today).filter(event_status='Active').order_by('start_date')
         context['sundayMassMalayalam1'] = time.objects.get(title='Holy Qurbana Malayalam1')
         context['sundayMassMalayalam'] = time.objects.get(title='Holy Qurbana Malayalam')
         context['sundayMassEnglish'] = time.objects.get(title='Holy Qurbana English')

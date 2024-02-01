@@ -14,11 +14,11 @@ EVENT_STATUS = (
 
 class event(models.Model):
     title        = models.CharField(max_length=100)
-    start_date   = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    start_date   = models.DateField(auto_now_add=False, auto_now=False, null=True)
     start_time   = models.TimeField(blank=True, null=True)
     end_date     = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     end_time     = models.TimeField(blank=True, null=True)
-    description  = models.CharField(max_length=100, null=True, blank=True)
+    description  = models.CharField(max_length=100, null=True)
     cover_image  = CloudinaryField(folder='events', blank=True, null=True)
     event_image  = CloudinaryField(folder='events', blank=True, null=True)
     event_status = models.CharField(choices=EVENT_STATUS, default='Active', max_length=30)
