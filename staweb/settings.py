@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-ALLOWED_HOSTS = ['localhost', 'staweb.herokuapp.com', 'www.stalphonsacoppell.org', 'stalphonsacoppell.org']
+ALLOWED_HOSTS = ['localhost', 'staweb.herokuapp.com', 'www.stalphonsacoppell.org', 'stalphonsacoppell.org','staweb-staging-0d9155171ea8.herokuapp.com']
 
 # Application definition
 
@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [{
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
-USE_L10N = True
+#USE_L10N = True - Commented as part of migrating to Django 4.2 with Heroku24
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
