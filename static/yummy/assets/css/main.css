@@ -1493,7 +1493,7 @@ section {
   background-size: cover;
   position: relative;
   min-height: 60vh;
-  padding: 160px 0 60px 0;
+  padding: 90px 0 60px 0;
 }
 
 .hero h2 {
@@ -1651,6 +1651,95 @@ section {
   padding-top: 4px;
   text-align: center;
   font-size: 13px;
+}
+
+/*--------------------------------------------------------------
+# Banner
+--------------------------------------------------------------*/
+.banner {
+  background-color: #1bac91;
+  color: white;
+  margin-top: 70px;
+  display: flex;
+  align-items: center;
+  height: 42px;
+  overflow: hidden;
+  position: relative;
+}
+
+.banner-label {
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0.18);
+  padding: 0 16px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.banner-ticker-wrap {
+  flex: 1;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.banner-ticker {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: ticker-scroll 18s linear infinite;
+}
+
+.banner-ticker:hover {
+  animation-play-state: paused;
+}
+
+.banner-ticker-item {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  padding: 0 24px;
+}
+
+.banner-ticker-item:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.banner-ticker-sep {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.6rem;
+}
+
+.banner-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0 16px;
+  opacity: 0.7;
+  height: 100%;
+}
+
+.banner-close:hover {
+  opacity: 1;
+}
+
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .footer .credits a {
