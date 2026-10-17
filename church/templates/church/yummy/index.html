@@ -39,6 +39,26 @@
 
   <body class="min-vh-100 d-flex flex-column">
     {% include 'church/yummy/header.html' %}
+
+    {% if banners %}
+    <div id="bannerid" class="banner">
+      <div class="banner-label">📢 Announcement</div>
+      <div class="banner-ticker-wrap">
+        <div class="banner-ticker">
+          {% for banner in banners %}
+            {% if banner.hyperlink %}<a class="banner-ticker-item" href="https://{{ banner.hyperlink }}" target="_blank">{{ banner.message }}</a>{% else %}<span class="banner-ticker-item">{{ banner.message }}</span>{% endif %}
+            <span class="banner-ticker-sep">◆</span>
+          {% endfor %}
+          {% for banner in banners %}
+            {% if banner.hyperlink %}<a class="banner-ticker-item" href="https://{{ banner.hyperlink }}" target="_blank">{{ banner.message }}</a>{% else %}<span class="banner-ticker-item">{{ banner.message }}</span>{% endif %}
+            <span class="banner-ticker-sep">◆</span>
+          {% endfor %}
+        </div>
+      </div>
+      <button class="banner-close" onclick="document.getElementById('bannerid').style.display='none'" aria-label="Close">&#x2715;</button>
+    </div>
+    {% endif %}
+
     {% include 'church/yummy/hero.html' %}
 
     <main id="main">

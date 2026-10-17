@@ -22,6 +22,7 @@ class HomeView(TemplateView):
         latestAlbum = PhotoAlbum.objects.order_by('-start_date').first()
 
         context['events'] = event.objects.filter(start_date__gte=today).filter(event_status='Active').order_by('start_date')
+
         context['sundayMassMalayalam1'] = time.objects.get(title='Holy Qurbana Malayalam1')
         context['sundayMassMalayalam'] = time.objects.get(title='Holy Qurbana Malayalam')
         context['sundayMassEnglish'] = time.objects.get(title='Holy Qurbana English')
@@ -34,6 +35,7 @@ class HomeView(TemplateView):
         context['adorationMTWS'] = time.objects.get(title='Adoration MTWS')
         context['adorationTHF'] = time.objects.get(title='Adoration THF')
         context['confession'] = time.objects.get(title='Confession MhFr')
+
         try:
             context['reading'] = reading.objects.get(date=today)
         except:

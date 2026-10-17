@@ -2,13 +2,24 @@
 {% load static %}
 
 {% block banner %}
+{% if banners %}
 <div id="bannerid" class="banner">
-  {% for banner in banners %}
-  <a class="banner-link" href="https://{{ banner.hyperlink }}" target="_blank">
-    <p>{{ banner.message }}</p>
-  </a>
-  {% endfor %}
+  <div class="banner-label">📢 Announcement</div>
+  <div class="banner-ticker-wrap">
+    <div class="banner-ticker">
+      {% for banner in banners %}
+        {% if banner.hyperlink %}<a class="banner-ticker-item" href="https://{{ banner.hyperlink }}" target="_blank">{{ banner.message }}</a>{% else %}<span class="banner-ticker-item">{{ banner.message }}</span>{% endif %}
+        <span class="banner-ticker-sep">◆</span>
+      {% endfor %}
+      {% for banner in banners %}
+        {% if banner.hyperlink %}<a class="banner-ticker-item" href="https://{{ banner.hyperlink }}" target="_blank">{{ banner.message }}</a>{% else %}<span class="banner-ticker-item">{{ banner.message }}</span>{% endif %}
+        <span class="banner-ticker-sep">◆</span>
+      {% endfor %}
+    </div>
+  </div>
+  <button class="banner-close" onclick="document.getElementById('bannerid').style.display='none'" aria-label="Close">&#x2715;</button>
 </div>
+{% endif %}
 {% endblock %}
 
 {% block content %}
