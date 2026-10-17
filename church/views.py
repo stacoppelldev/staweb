@@ -29,11 +29,11 @@ class HomeView(TemplateView):
         #context['weekdayMassTTH'] = time.objects.get(title='Weekday Mass TTH')
         context['weekdayMassTS'] = time.objects.get(title='Weekday Mass TS')
         context['weekdayMassMF'] = time.objects.get(title='Weekday Mass MF')
+        #context['weekdayMassMWTF'] = time.objects.get(title='Weekday Mass MWTF')
         context['weekdayExtMass'] = time.objects.get(title='Weekday Extension Mass')
-        #context['adorationMTWS'] = time.objects.get(title='Adoration MTWS')
-        #context['adorationTHF'] = time.objects.get(title='Adoration THF')
-        context['adorationTS'] = time.objects.get(title='Adoration TS')
-        context['confession'] = time.objects.get(title='Confession')
+        context['adorationMTWS'] = time.objects.get(title='Adoration MTWS')
+        context['adorationTHF'] = time.objects.get(title='Adoration THF')
+        context['confession'] = time.objects.get(title='Confession MhFr')
         try:
             context['reading'] = reading.objects.get(date=today)
         except:
