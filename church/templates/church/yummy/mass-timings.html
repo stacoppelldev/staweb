@@ -36,11 +36,11 @@
       <div class="col-12 col-lg-6 col-xl-4">
         <div class="icon-box h-100">
           <h4>Weekday Holy Qurbana</h4>
-          <p><strong>Tuesday through Saturday</strong></p>
-          <p>{{ weekdayMassTS.time|time:"h:i A" }} Holy Qurbana (Malayalam)</p>
-          <p><strong>Monday through Friday</strong></p>
-          <p>{{ weekdayMassMF.time|time:"h:i A" }} Holy Qurbana (English) </p>
-            <span class="fst-italic">Novena on Thursday and Friday after Holy Qurbana</span>
+          <p><strong>Wednesday &amp; Saturday</strong></p>
+          <p>{{ weekdayMassTS.time|time:"h:i A" }} Holy Qurbana</p>
+          <p><strong>Monday, Thursday &amp; Friday</strong></p>
+          <p>{{ weekdayMassMF.time|time:"h:i A" }} Holy Qurbana</p>
+            <span class="fst-italic">St. Jude Novena on Thursday, St. Alphonsa Novena on Friday, and Our Lady of Perpetual Help Novena on Saturday, following Holy Qurbana</span>
         </div>
       </div>
 
@@ -66,8 +66,10 @@
       <div class="col-12 col-lg-6 col-xl-4">
         <div class="icon-box h-100">
           <h4>Adoration</h4>
-          <p class="description"><strong>Tuesday through Saturday</strong></p>
-          <p class="description">{{ adorationTS.time|time:"h:i A" }}</p>
+          <p class="description"><strong>Wednesday</strong></p>
+          <p class="description">{{ adorationMTWS.time|time:"h:i A" }} – 8:30 AM</p>
+          <p class="description"><strong>Monday, Thursday &amp; Friday</strong></p>
+          <p class="description">{{ adorationTHF.time|time:"h:i A" }} – 7:00 PM</p>
         </div>
       </div>
     </div>
